@@ -34,11 +34,7 @@
         echo '<br>le nombre de billets par page est défini à : ' . $billets_par_page;
 
         //calcul du nombre de pages nécessaires pour 2 billets par page
-        $mod = $nbr_billets%$billets_par_page;
-        echo '<br>le modulo(reste) est : ' . $mod;
-        $quot = round(($nbr_billets/$billets_par_page), 0, PHP_ROUND_HALF_DOWN);
-        echo '<br>le quotient est : ' . $quot;
-        $nbr_pages = $mod + $quot;
+        $nbr_pages = round(($nbr_billets/$billets_par_page), 0, PHP_ROUND_HALF_UP);
         echo '<br>Le nombre de pages nécessaires est de : ' . $nbr_pages . '<br>';
 
         //On crée les liens vers les pages
