@@ -30,11 +30,11 @@
         echo 'Nombre de billets : ' . $nbr_billets;
 
         //on définit le nombre de billets par page
-        $billets_par_page = 2;
+        $billets_par_page = 3;
         echo '<br>le nombre de billets par page est défini à : ' . $billets_par_page;
 
-        //calcul du nombre de pages nécessaires pour 2 billets par page
-        $nbr_pages = round(($nbr_billets/$billets_par_page), 0, PHP_ROUND_HALF_UP);
+        //calcul du nombre de pages nécessaires
+        $nbr_pages = ceil(($nbr_billets/$billets_par_page));
         echo '<br>Le nombre de pages nécessaires est de : ' . $nbr_pages . '<br>';
 
         //On crée les liens vers les pages
