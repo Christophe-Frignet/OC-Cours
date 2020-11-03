@@ -12,8 +12,11 @@
     <?php
         include('connexion_bdd.php');
             
-        //Récupération des billets de blog (les 2 premiers)
-        $requete = $bdd->query('SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT 0,2');
+        //Récupération des billets de blog
+        $sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT 0,2';
+
+        $requete = $bdd->prepare($sql);
+        $requete->execute();
 
         //Affichage des billets du blog
         while ($billet = $requete->fetch())
@@ -24,13 +27,17 @@
         $requete->closeCursor();
 
         //Récupération du nombre de billets du blog
-        $requete = $bdd->query('SELECT COUNT(*) AS nb_billets FROM billets');
+        $sql = 'SELECT COUNT(*) AS nb_billets FROM billets';
+
+        $requete = $bdd->prepare($sql);
+        $requete->execute();
+
         $req = $requete->fetch();
         $nbr_billets = $req['nb_billets'];
         echo 'Nombre de billets : ' . $nbr_billets;
 
         //on définit le nombre de billets par page
-        $billets_par_page = 3;
+        $billets_par_page = 2;
         echo '<br>le nombre de billets par page est défini à : ' . $billets_par_page;
 
         //calcul du nombre de pages nécessaires
