@@ -1,0 +1,36 @@
+h1, h3
+{
+    text-align:center;
+}
+h3
+{
+    background-color:black;
+    color:white;
+    font-size:0.9em;
+    margin-bottom:0px;
+}
+
+.center
+{
+    width:70%;
+    margin:auto;
+}
+.padding
+{
+    padding:20px;
+}
+.bloc
+{
+    border: 1px solid grey;
+    margin-bottom: 5px;
+}
+.news p
+{
+    background-color:#CCCCCC;
+    margin-top:0px;
+}
+a
+{
+    text-decoration: none;
+    color: blue;
+}
