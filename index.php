@@ -9,6 +9,8 @@
 
 <body>
     <h1>Billets du blog</h1>
+
+    <p>Ceci est le paragraphe du commit de la branche</p>
     <?php
         include('connexion_bdd.php');
             
