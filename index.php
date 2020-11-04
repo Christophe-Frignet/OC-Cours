@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1>Billets du blog</h1>
+    <h1>Articles du blog</h1>
     <?php
         include('connexion_bdd.php');
             
