@@ -48,9 +48,12 @@
         echo '<br>Le nombre de pages nécessaires est de : ' . $nbr_pages . '<br>';
 
         //On crée les liens vers les pages
+        $page_num = 1;
+
         for ($pagination = 1; $pagination <= $nbr_pages; $pagination++)
         {
-            echo '<a href="">| Page ' . $pagination . ' |</a> ';
+            echo '<a href="?page=' . $page_num . '">| Page ' . $pagination . ' |</a> ';
+            $page_num = $page_num + 1;
         }
         
     ?>
