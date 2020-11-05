@@ -13,10 +13,30 @@
     <?php
         include('connexion_bdd.php');
 
-        $numcom = 0;
-            
-        //Récupération des billets de blog
-        $sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT ' . $numcom . ',2';
+        //on définit le nombre de billets par page
+        $billets_par_page = 1;
+        echo '<p style="text-align: center;">le nombre de billets par page est défini à : ' . $billets_par_page .'<p>';
+                
+
+        //on vérifie la récupération du numéro de page avec les liens de pagination
+        if(isset($_GET['num_page']))
+        {
+            echo '<p style="text-align: center;">le numéro de page en cours est : ' . $_GET['num_page'] . '<p>';
+            $num_page = $_GET['num_page'];
+            echo '<p style="text-align: center;">la variable $num_page contient : ' . $num_page . '<p>';
+        }
+        else
+        {
+            echo '<p style="text-align: center;">Il n\'y a pas de numéro de page défini<p>';
+            $num_page = 1;
+            echo '<p style="text-align: center;">la variable $num_page contient : ' . $num_page . '<p>';
+        }
+
+        $num_prem_post = ($num_page -1)*$billets_par_page;
+        echo '<p style="text-align: center;">le premier post de la liste qui doit être affiché est le n° : ' . $num_prem_post . '<p>';
+
+        //On récupère tous les billets de blog
+        $sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT ' . $num_prem_post . ',' . $billets_par_page . '';
 
         $requete = $bdd->prepare($sql);
         $requete->execute();
@@ -37,25 +57,22 @@
 
         $req = $requete->fetch();
         $nbr_billets = $req['nb_billets'];
-        echo 'Nombre de billets : ' . $nbr_billets;
-
-        //on définit le nombre de billets par page
-        $billets_par_page = 2;
-        echo '<br>le nombre de billets par page est défini à : ' . $billets_par_page;
+        echo '<p style="text-align: center;">Le nombre total de billets est de : ' . $nbr_billets . '<p>';
 
         //calcul du nombre de pages nécessaires
         $nbr_pages = ceil(($nbr_billets/$billets_par_page));
-        echo '<br>Le nombre de pages nécessaires est de : ' . $nbr_pages . '<br>';
+        echo '<p style="text-align: center;">Le nombre de pages nécessaires est de : ' . $nbr_pages . '<p>';
 
         //On crée les liens vers les pages
-        $page_num = 1;
+        $num = 1;
 
+        echo '<p style="text-align: center;">';
         for ($pagination = 1; $pagination <= $nbr_pages; $pagination++)
         {
-            echo '<a href="?page=' . $page_num . '">| Page ' . $pagination . ' |</a> ';
-            $page_num = $page_num + 1;
+            echo '<a href="?num_page=' . $num . '">| Page ' . $pagination . ' |</a> ';
+            $num = $num + 1;
         }
-        
+        echo '</p>';
     ?>
 </body>
 </html>
