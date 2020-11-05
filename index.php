@@ -10,12 +10,13 @@
 <body>
     <h1>Articles du blog</h1>
 
-    <p>Ceci est le paragraphe du commit de la branche</p>
     <?php
         include('connexion_bdd.php');
+
+        $numcom = 0;
             
         //Récupération des billets de blog
-        $sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT 0,2';
+        $sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT ' . $numcom . ',2';
 
         $requete = $bdd->prepare($sql);
         $requete->execute();
