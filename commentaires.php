@@ -14,10 +14,8 @@
         <?php
         include('connexion_bdd.php');
 
-        //protection de l'id_billet contre une faille XSS
-        $id_billet = htmlspecialchars($_GET['id_billet']);
-
         //Récupération du billet de blog
+        $id_billet = htmlspecialchars($_GET['id_billet']);
         $req = $bdd->prepare('SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y\') AS date_creation_fr FROM billets WHERE id = ?');
 
         $req->execute(array($id_billet));
