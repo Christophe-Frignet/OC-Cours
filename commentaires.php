@@ -9,7 +9,7 @@
 
 <body>
 
-    <a href="index.php"><< Retour à la liste des billets</a>
+    <p style="text-align: center;"><a href="index.php"><< Retour à la liste des articles</a></p>
 
         <?php
         include('connexion_bdd.php');

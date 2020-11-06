@@ -10,6 +10,6 @@
 <p>
     <?php echo($billet['contenu']);?>
     <br />
-    <a href="commentaires.php?id_billet=<?php echo($billet['id']);?>">Commentaires >></a>
+    <a href="commentaires.php?id_billet=<?php echo($billet['id']);?>">Afficher article entier avec commentaires >></a>
 </p>
 </section>
