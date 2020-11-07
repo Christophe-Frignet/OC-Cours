@@ -6,3 +6,7 @@ ignore/
 
 #on ignore tous les fichiers ayant l'extension ".phtml"
 *.phtml
+
+#on ignore tous les fichiers ayant l'extension ".phtml" sauf le fichier "pas_moi.phtml"
+*.phtml
+!pas_moi.phtml
