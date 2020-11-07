@@ -3,3 +3,6 @@ ignore.txt
 
 #on ignore tous les fichiers se trouvant dans le répertoire appelé "ignore"
 ignore/
+
+#on ignore tous les fichiers ayant l'extension ".phtml"
+*.phtml
