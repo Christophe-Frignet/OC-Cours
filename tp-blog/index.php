@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>Liste des articles</h1>
+    <h1>Liste des articles du blog</h1>
 
         
         <?php $_SESSION['access'] = 0 ?>
