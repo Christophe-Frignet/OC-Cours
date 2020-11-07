@@ -1,13 +1,17 @@
-#on ignore le fichier appelé "ignore.txt"
-ignore.txt
+#ignorer un fichier spécifique
+#ex : on ignore le fichier appelé "fichier_ignore.txt"
+fichier_ignore.txt
 
-#on ignore tous les fichiers se trouvant dans le répertoire appelé "ignore"
-ignore/
+#ignorer tous les fichiers d'un dossier
+#ex : on ignore tous les fichiers se trouvant dans le dossier "sous_rep_ignore"
+rep_ignore/sous_rep_ignore/
 
-#on ignore tous les fichiers ayant l'extension ".phtml"
+#ignorer tous les fichiers d'une extension spécifique
+#ex : on ignore tous les fichiers ayant l'extension ".phtml"
 *.phtml
 
-#on ignore tous les fichiers ayant l'extension ".phtml", ok mais sauf le fichier "pas_moi.phtml"
-# !! attention si le fichier "pas_moi.phtml" est placé dans le répertoire "ignore" ci-dessus, il ne sera pas suivi !!
+#faire une exception pour un fichier spécifique qu'on ne veut pas ignorer
+#ex : on ignore tous les fichiers ayant l'extension ".phtml", ok mais sauf le fichier "pas_moi.phtml"
 *.phtml
 !pas_moi.phtml
+# malheureusement, si "pas_moi.phtml" est placé dans le répertoire "sous_rep_ignore" ci-dessus, il sera ignoré
