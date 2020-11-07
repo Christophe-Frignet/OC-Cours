@@ -1,0 +1,5 @@
+#on ignore le fichier appelé "ignore.txt"
+ignore.txt
+
+#on ignore tous les fichiers se trouvant dans le répertoire appelé "ignore"
+ignore/
