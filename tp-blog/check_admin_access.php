@@ -1,13 +1,13 @@
 <?php
+session_start();
 
-echo '> La page est chargée <br>';
-
+//si on a bien un id et un mot de passe passés par le formulaire
 if (isset($_POST['id_admin_access']) AND isset($_POST['pwd_admin_access'])) {
 
-    echo '> les variables sont passées <br>';
-    echo '<p>l\'identifiant envoyé est : ' .$_POST['id_admin_access']. '</p>';
-    echo '<p>le mot de passe envoyé est : ' .$_POST['pwd_admin_access']. '</p>';
-    
+    //On ouvre les deux variables de session
+    $_SESSION['id_admin'] = $_POST['id_admin_access'];
+    $_SESSION['pass_admin'] = $_POST['pwd_admin_access'];
+
     //On se connecte à la BDD
     $dsn = 'mysql:host=localhost;dbname=test';
     $username = 'root';
@@ -23,26 +23,26 @@ if (isset($_POST['id_admin_access']) AND isset($_POST['pwd_admin_access'])) {
 
     //On cherche dans la BDD le mot de passe qui correspond à l'identifiant
     $id_admin = $_POST['id_admin_access'];
-
     $sql = 'SELECT id, id_admin, pwd_admin FROM acces_admin WHERE id_admin = :id_admin;';
 
     $req = $bdd->prepare($sql);
-
     $req->execute(array(
         'id_admin' => $id_admin
         ));
 
-    $res = $req->fetch();
-
-    echo '<p>le mot de passe correspondant à "' .$res['id_admin'] .'" est : "' . $res['pwd_admin'] .'"</p>';
-
     // On compare le pass envoyé avec le pass dans la base
+    $res = $req->fetch();
     $pass_soumis = $_POST['pwd_admin_access'];
     $pass_base = $res['pwd_admin'];
+
     if (password_verify($pass_soumis, $pass_base)) {
-        echo 'Le mot de passe est valide !';
+        //si l'id et le mot de passe sont ok, on retourne sur la page principale
+        //avec l'accès "admin" enregistré dans la session
+        $_SESSION['access'] = 'admin';
+        header('Location: index.php?');
     } else {
-        echo 'Le mot de passe est invalide.';
+        //sinon on recharge le formulaire d'accès admin
+        header('Location: adminaccessform.php?');
     }
     
     

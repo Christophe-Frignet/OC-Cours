@@ -24,10 +24,6 @@
 
         if (!empty($billet)) {
             
-            ?>
-            <h1><?php echo htmlspecialchars($billet['titre']); ?></h1>
-    
-            <?php
             //affichage du billet
             include('afficher_billet.php');
     

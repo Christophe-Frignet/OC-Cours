@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,24 +10,24 @@
 </head>
 
 <body>
-    <h1>Liste des articles du blog</h1>
-
-        
-        <?php $_SESSION['access'] = 0 ?>
+    <h1>Mon premier blog</h1>
 
         <p style="text-align:center;">
-        <?php
-        if ($_SESSION['access'] == 1) {
-           echo 'L\'accès admin est autorisé <br>';
-        } else {
-            echo 'L\'accès utilisateur seulement est autorisé : <a href="adminaccessform.php">accès administrateur</a>';
-        }
-        ?>
+            <?php
+            if (isset($_SESSION['access']) AND $_SESSION['access'] = 'admin') {
+                //Si la session accès est "admin" on passe admin_access à true et on propose la déconnexion
+                echo 'ACCES : ADMINISTRATEUR<br><a href="deconnexion.php">se déconnecter</a>';
+                echo '<br><br><a href="#">+ Ajouter un artile</a>';
+                $admin_access = true;
+            } else {
+                //Sinon on passe passe admin_access à false et on propose la connexion à l'espace admin
+                echo '<a href="adminaccessform.php">accès administrateur >></a>';
+                $admin_access = false;
+            }
+            ?>
         </p>
         
         <?php
-
-        
         //on définit le deuxième paramètre du LIMIT de la requête SQL : le nombre de billets par page, 
         $billets_par_page = 2;
 
