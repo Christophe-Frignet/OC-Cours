@@ -1,6 +1,6 @@
 <section class="bloc center padding">
 
-<?php var_dump($billet['titre']); ?>
+<?php //var_dump($billet['titre']); ?>
 
 <h3>
 <?php echo htmlspecialchars($billet['titre']); ?>
@@ -11,7 +11,7 @@
     <?php echo($billet['contenu']);?>
     <br />
     <br />
-    <a href="commentaires.php?id_billet=<?php echo($billet['id']);?>">Afficher les commentaires >></a>
+    <a href="commentaires.php?id_billet=<?php echo($billet['id']);?>">Afficher l'article et ses commentaires >></a>
 
     <?php
     //Si l'accès admin est autorisé on affiche les options de l'administrateur

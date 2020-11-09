@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +11,11 @@
 
 <body>
 
+    <?php include('bloc-acces.php'); ?>
+
     <p style="text-align: center;"><a href="index.php"><< Retour à la liste des articles</a></p>
+
+    <h1>Page article avec commentaires</h1>
 
         <?php
         include('connexion_bdd.php');
@@ -73,7 +79,7 @@
         <?php
         } else {
         ?>
-            <section class="bloc center padding">
+            <section class="bloc center padding"  style="text-align:center;">
                 <h2>Numéro de billet invalide</h2>
             </section>
         <?php
