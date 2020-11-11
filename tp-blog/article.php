@@ -20,7 +20,7 @@
         <?php
         include('connecter-bdd.php');
 
-        //Récupération du billet de blog
+        //Récupération de l'article voulu
         $id_billet = htmlspecialchars($_GET['id_billet']);
         $req = $bdd->prepare('SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y\') AS date_creation_fr FROM billets WHERE id = ?');
 
@@ -70,7 +70,7 @@
         } else {
         ?>
             <section class="bloc center padding"  style="text-align:center;">
-                <h2>Numéro de billet invalide</h2>
+                <h2>Numéro d'article invalide</h2>
             </section>
         <?php
         }

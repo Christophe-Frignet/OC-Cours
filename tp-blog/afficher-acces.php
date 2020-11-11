@@ -1,5 +1,3 @@
-<section class="bloc center">
-     <p style="text-align:center;">
             <?php
             if (isset($_SESSION['access']) AND $_SESSION['access'] = 'admin') {
                 //Si la session accès est "admin" on passe admin_access à true et on propose la déconnexion
@@ -12,5 +10,3 @@
                 $admin_access = false;
             }
             ?>
-      </p>
-    </section>
