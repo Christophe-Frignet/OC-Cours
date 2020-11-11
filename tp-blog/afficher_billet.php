@@ -21,7 +21,7 @@
 
     <ul>
         <li><a href="modifier-article.php?id_billet=<?php echo($billet['id']);?>">Modifier l'article</a></li>
-        <li><a href="">Supprimer l'article</a></li>
+        <li><a href="supprimer-article.php?id=<?php echo($billet['id']);?>">Supprimer l'article</a></li>
     </ul>    
 
     <?php

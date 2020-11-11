@@ -13,7 +13,7 @@
 
     <?php include('bloc-acces.php'); ?>
 
-    <p style="text-align: center;"><a href="index.php"><< Retour à la liste des articles</a></p>
+    <p style="text-align: center;"><a href="index.php"><< Retour à l'accueil</a></p>
 
     <h1>Page article avec commentaires</h1>
 

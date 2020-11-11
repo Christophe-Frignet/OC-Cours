@@ -13,7 +13,7 @@
 
 <?php include('bloc-acces.php'); ?>
 
-    <h1>Page liste articles</h1>
+    <h1>Accueil</h1>
 
     <?php
     //Si l'accès admin est autorisé on affiche les options de l'administrateur
@@ -22,7 +22,7 @@
     ?>
 
     <p style="text-align:center;">
-        <a href="">+ Ajouter un article</a>
+        <a href="ajouter-article.php">+ Ajouter un article</a>
     </p>    
 
     <?php
@@ -49,7 +49,7 @@
         include('connexion_bdd.php');
 
         //On affiche les billets du blog
-        $sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT ' . $num_billet . ',' . $billets_par_page . '';
+        $sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y %H:%i:%s\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT ' . $num_billet . ',' . $billets_par_page . '';
 
         $requete = $bdd->prepare($sql);
         $requete->execute();
