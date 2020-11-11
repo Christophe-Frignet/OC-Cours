@@ -2,7 +2,7 @@
 $id_article = $_GET['id'];
 
 //on se connecte à la base de données
-include('connexion_bdd.php');
+include('connecter-bdd.php');
 
 //On met à jour les champs récupérés dans le formulaire de modification d'article
 $sql ='DELETE FROM billets WHERE id = :id';

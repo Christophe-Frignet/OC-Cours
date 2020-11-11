@@ -11,14 +11,14 @@
 
 <body>
 
-    <?php include('bloc-acces.php'); ?>
+    <?php include('afficher-acces.php'); ?>
 
     <p style="text-align: center;"><a href="index.php"><< Retour à l'accueil</a></p>
 
     <h1>Page article avec commentaires</h1>
 
         <?php
-        include('connexion_bdd.php');
+        include('connecter-bdd.php');
 
         //Récupération du billet de blog
         $id_billet = htmlspecialchars($_GET['id_billet']);
@@ -31,7 +31,7 @@
         if (!empty($billet)) {
             
             //affichage du billet
-            include('afficher_billet.php');
+            include('afficher-article.php');
     
             $req->closeCursor(); // Important : on libère le curseur pour la prochaine requête
             
@@ -59,22 +59,12 @@
                 $req->closeCursor();
                 ?>
             </section>
-    
-            <section class="bloc center padding">
-                <h2>Ajouter un commentaire</h2>
-                <form  method="POST" action="ajout_commentaire.php">
-                    <input type="hidden" name="id_billet" value="<?php echo $id_billet ?>">
-                    <input type="hidden" name="date_commentaire" value="<?php echo date('Y-m-d') ?>">
-                    
-                    <label for="auteur">Auteur</label><br>
-                    <input type="text" id="auteur" name="auteur"><br>
-    
-                    <label for="commentaire">Commentaire</label><br>
-                    <textarea name="commentaire" id="commentaire" style="width:300px; height:100px;"></textarea><br>
-    
-                    <input type="submit" value="Envoyer">
-                </form>
-            </section>
+            
+
+            <?php
+            //on intègre à l'article l'ajout de commentaires
+            include('ajouter-commentaire.php');
+            ?>
     
         <?php
         } else {

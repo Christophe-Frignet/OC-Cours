@@ -11,7 +11,7 @@
 
 <body>
 
-<?php include('bloc-acces.php'); ?>
+<?php include('afficher-acces.php'); ?>
 
     <h1>Accueil</h1>
 
@@ -46,7 +46,7 @@
         $num_billet = ($num_page -1)*$billets_par_page;
 
         //on se connecte à la bdd
-        include('connexion_bdd.php');
+        include('connecter-bdd.php');
 
         //On affiche les billets du blog
         $sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y %H:%i:%s\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT ' . $num_billet . ',' . $billets_par_page . '';
@@ -56,7 +56,7 @@
 
         while ($billet = $requete->fetch())
         {
-            include('afficher_billet.php');
+            include('afficher-article.php');
         }
         
         $requete->closeCursor();

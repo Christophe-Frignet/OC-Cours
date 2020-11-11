@@ -42,7 +42,7 @@ if (isset($_POST['id_admin_access']) AND isset($_POST['pwd_admin_access'])) {
         header('Location: index.php?');
     } else {
         //sinon on recharge le formulaire d'accès admin
-        header('Location: adminaccessform.php?');
+        header('Location: connecter-admin.php?');
     }
     
     

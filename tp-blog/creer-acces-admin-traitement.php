@@ -29,7 +29,7 @@ if (isset($_POST['id_admin']) AND isset($_POST['pwd_admin'])) {
         ));
     
     //on retourne sur la page createadminaccess
-    header('Location: createadminaccess.php');
+    header('Location: adminaccessform.php');
     
 //si les variables de session ne sont pas là ...
 } else {

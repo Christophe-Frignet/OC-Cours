@@ -28,5 +28,5 @@ $req->execute(array(
     ));
 
 //on retourne sur la page du billet
-header('Location: commentaires.php?id_billet=' . $id_billet);
+header('Location: article.php?id_billet=' . $id_billet);
 ?>

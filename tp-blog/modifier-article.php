@@ -10,7 +10,7 @@
 <body>
 
 <?php
-include('connexion_bdd.php');
+include('connecter-bdd.php');
 
 //Récupération de l'article
 $id = htmlspecialchars($_GET['id_billet']);
@@ -30,7 +30,7 @@ $req->closeCursor(); // Important : on libère le curseur pour la prochaine requ
 //On affiche les liens de retour
 ?>
 <p style="text-align: center;"><a href="index.php"><< Retour à la liste des articles</a></p>
-<p style="text-align: center;"><a href="commentaires.php?id_billet=<?php echo $id_article;?>"><< Voir l'article</a></p>
+<p style="text-align: center;"><a href="article.php?id_billet=<?php echo $id_article;?>"><< Voir l'article</a></p>
 
 <! -- On propose un formulaire pré-rempli avec le contenu de l'article existant
  -->
