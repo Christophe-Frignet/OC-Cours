@@ -11,7 +11,11 @@
 
 <body>
 
-    <?php include('afficher-acces.php'); ?>
+    <section class="bloc center">
+        <p style="text-align:center;">
+            <?php include('afficher-acces.php'); ?>
+        </p>
+    </section>
 
     <p style="text-align: center;"><a href="index.php"><< Retour à l'accueil</a></p>
 
@@ -26,9 +30,9 @@
 
         $req->execute(array($id_billet));
         
-        $billet = $req->fetch();
+        $article = $req->fetch();
 
-        if (!empty($billet)) {
+        if (!empty($article)) {
             
             //affichage du billet
             include('afficher-article.php');

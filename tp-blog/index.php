@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Billets de blog</title>
+    <title>TP Blog</title>
 </head>
 
 <body>
@@ -48,20 +48,20 @@ else
 }
 
 //on définit le nombre d'articles par page 
-$billets_par_page = 2;
+$articles_par_page = 2;
 
 //Puis on calcul le n° de l'article qui doit s'afficher en premier
-$num_billet = ($num_page-1)*$billets_par_page;
+$num_article = ($num_page-1)*$articles_par_page;
 
 //---------------------------------Récupération des articles à afficher----------------------------
 include('connecter-bdd.php');
 
-$sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y %H:%i:%s\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT ' . $num_billet . ',' . $billets_par_page . '';
+$sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y %H:%i:%s\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT ' . $num_article . ',' . $articles_par_page . '';
 
 $requete = $bdd->prepare($sql);
 $requete->execute();
 
-while ($billet = $requete->fetch())
+while ($article = $requete->fetch())
 {
     include('afficher-article.php');
 }
@@ -70,17 +70,17 @@ $requete->closeCursor();
 
 //--------------------------------------------Création de la pagination----------------
 
-//On récupère le nombre de billets du blog
+//On récupère le nombre total d'articles du blog
 $sql = 'SELECT COUNT(*) AS nb_billets FROM billets';
 
 $requete = $bdd->prepare($sql);
 $requete->execute();
 
 $req = $requete->fetch();
-$nbr_billets = $req['nb_billets'];
+$nbr_articles = $req['nb_billets'];
 
-//on calcule le nombre de pages nécessaires par rapport au nombre d'articles voulus par page
-$nbr_pages = ceil(($nbr_billets/$billets_par_page));
+//on déduit le nombre de pages nécessaires
+$nbr_pages = ceil(($nbr_articles/$articles_par_page));
 
 //On crée les liens de la pagination
 ?>
