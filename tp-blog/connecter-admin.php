@@ -11,6 +11,7 @@
 
 <p style="text-align:center;"><a href="index.php"><< Liste articles</a></p>
 <p style="text-align:center;"><a href="creer-acces-admin.php">Création accès administrateur >></a></p>
+
 <section class="bloc center padding">
     <h2>Connexion administrateur</h2>
         <form  method="POST" action="connecter-admin-traitement.php">

@@ -9,17 +9,7 @@ if (isset($_POST['id_admin_access']) AND isset($_POST['pwd_admin_access'])) {
     $_SESSION['pass_admin'] = $_POST['pwd_admin_access'];
 
     //On se connecte à la BDD
-    $dsn = 'mysql:host=localhost;dbname=test';
-    $username = 'root';
-    $password = '';
-    try
-    {
-        $bdd = new PDO($dsn, $username, $password,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    }
-    catch(Exception $e)
-    {
-            die('Erreur : '.$e->getMessage());
-    }
+    include('connecter-bdd.php');
 
     //On cherche dans la BDD le mot de passe qui correspond à l'identifiant
     $id_admin = $_POST['id_admin_access'];
@@ -35,18 +25,21 @@ if (isset($_POST['id_admin_access']) AND isset($_POST['pwd_admin_access'])) {
     $pass_soumis = $_POST['pwd_admin_access'];
     $pass_base = $res['pwd_admin'];
 
+    //si l'id et le mot de passe sont ok
     if (password_verify($pass_soumis, $pass_base)) {
-        //si l'id et le mot de passe sont ok, on retourne sur la page principale
-        //avec l'accès "admin" enregistré dans la session
+        
+        //on enregistre l'accès "admin" dans la session
         $_SESSION['access'] = 'admin';
+
+        //et on retourne sur la page principale
         header('Location: index.php?');
+    
+    //sinon on rafraîchit le formulaire de connection admin
     } else {
-        //sinon on recharge le formulaire d'accès admin
         header('Location: connecter-admin.php?');
     }
     
-    
-//si les variables de session ne sont pas là ...
+//sinon, si les variables ne sont pas passées par le formulaire
 } else {
-    echo 'Les variables n\'existent pas !';
+    echo 'L\'accès direct à cette page est interdit !';
 }

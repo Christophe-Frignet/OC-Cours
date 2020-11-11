@@ -1,4 +1,6 @@
 <?php
+
+//on récupère les données
 $titre_article = $_POST['titre'];
 $contenu_article = $_POST['contenu'];
 $id_article = $_POST['id'];
@@ -6,7 +8,7 @@ $id_article = $_POST['id'];
 //on se connecte à la base de données
 include('connecter-bdd.php');
 
-//On met à jour les champs récupérés dans le formulaire de modification d'article
+//On met à jour les données dans la table 
 $req = $bdd->prepare('UPDATE billets SET titre = :titre , contenu = :contenu WHERE id = :id');
 
 $req->execute(array(
@@ -17,6 +19,7 @@ $req->execute(array(
 
 $req->closeCursor(); // Important : on libère le curseur pour la prochaine requête
 
+//on affiche la page de l'article modifié
 header('Location: article.php?id_billet= ' . $id_article . '');
 
 ?>

@@ -10,9 +10,11 @@
 <body>
 
 <?php
+
+//on se connecte à la bdd
 include('connecter-bdd.php');
 
-//Récupération de l'article
+//On récupère l'article qui doit être modifié
 $id = htmlspecialchars($_GET['id_billet']);
 $req = $bdd->prepare('SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y\') AS date_creation_fr FROM billets WHERE id = ?');
 
@@ -27,13 +29,13 @@ $contenu_article = $article['contenu'];
 
 $req->closeCursor(); // Important : on libère le curseur pour la prochaine requête
 
-//On affiche les liens de retour
+//On affiche les liens de navigation
 ?>
 <p style="text-align: center;"><a href="index.php"><< Retour à la liste des articles</a></p>
 <p style="text-align: center;"><a href="article.php?id_billet=<?php echo $id_article;?>"><< Voir l'article</a></p>
 
-<! -- On propose un formulaire pré-rempli avec le contenu de l'article existant
- -->
+<?php
+// On affiche un formulaire pré-rempli avec les données de l'article?>
 <h1>Modifier article</h1>
 <section class="bloc center padding">
     <form action="modifier-article-traitement.php" method="post">
