@@ -1,8 +1,8 @@
 <?php
 
-//on récupère les données
-$titre_article = $_POST['titre'];
-$contenu_article = $_POST['contenu'];
+//on réduit la faille XSS sur la récupération des données
+$titre_article = htmlspecialchars($_POST['titre']);
+$contenu_article = htmlspecialchars($_POST['contenu']);
 
 //on se connecte à la base de données
 include('connecter-bdd.php');

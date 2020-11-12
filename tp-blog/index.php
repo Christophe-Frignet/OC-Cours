@@ -93,6 +93,7 @@ while ($article = $requete->fetch())
 <?php
 }
 
+
 $requete->closeCursor();
 
 //--------------------------------------------Création de la pagination----------------

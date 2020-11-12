@@ -1,7 +1,7 @@
 <?php
 
-//on récupère l'id de l'article à supprimer
-$id_article = $_GET['id'];
+//on réduit la faille XSS de l'id récupéré
+$id_article = htmlspecialchars($_GET['id']);
 
 //on se connecte à la base de données
 include('connecter-bdd.php');

@@ -1,11 +1,14 @@
 <?php
 
 //si les variables sont bien passées en POST
-if (isset($_POST['id_admin']) AND isset($_POST['pwd_admin'])) {
+if (isset($_POST['id_admin']) AND isset($_POST['mdp_admin'])) {
     
-    //on initialise les variables pour la requête bdd
-    $id = $_POST['id_admin'];
-    $pwd = password_hash($_POST['pwd_admin'], PASSWORD_DEFAULT);
+    //on réduit la faille XSS
+    $id_admin = htmlspecialchars($_POST['id_admin']);
+    $mdp_admin = htmlspecialchars($_POST['mdp_admin']);
+
+    //on crypte le mot de passe avant de le mettre dans la bdd
+    $mdp_admin_crypte = password_hash($mdp_admin, PASSWORD_DEFAULT);
 
     //On se connecte à la BDD
     include('connecter-bdd.php');
@@ -16,8 +19,8 @@ if (isset($_POST['id_admin']) AND isset($_POST['pwd_admin'])) {
 
     //on exécute la requête
     $req->execute(array(
-        'id' => $id,
-        'pwd' => $pwd
+        'id' => $id_admin,
+        'pwd' => $mdp_admin_crypte
         ));
     
     //on retourne sur la page de connexion admin

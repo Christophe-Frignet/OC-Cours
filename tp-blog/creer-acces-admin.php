@@ -19,8 +19,8 @@
             <label for="id_admin">Identifiant</label><br>
             <input type="text" id="id_admin" name="id_admin"><br>
     
-            <label for="pwd_admin">Mot de passe</label><br>
-            <input type="text" id="pwd_admin" name="pwd_admin"><br>
+            <label for="mdp_admin">Mot de passe</label><br>
+            <input type="text" id="mdp_admin" name="mdp_admin"><br>
 
             <input type="submit" value="Envoyer en BDD">
         </form>

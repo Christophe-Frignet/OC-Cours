@@ -8,7 +8,7 @@ if (isset($_SESSION['access']) AND $_SESSION['access'] = 'admin') {
 
 $admin_access = true;
 
-//Sinon, on propose la connexion à l'espace admin
+//Sinon, on propose la connexion
 } else {
     ?>
     <strong>UTILISATEUR</strong><br><a href="connecter-admin.php">>> Connecter Admin <<</a>
