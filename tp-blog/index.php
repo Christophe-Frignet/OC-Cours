@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php include('fonctions.php');?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -36,16 +37,8 @@
 
 //-------------------------------Calcul des articles à afficher (pagination) -----------------
 
-//si on connait le numéro de page on s'en sert
-if(isset($_GET['num_page']))
-{
-    $num_page = $_GET['num_page'];
-}
-//sinon on considère être sur la page n°1
-else
-{
-    $num_page = 1;
-}
+//on récupère le numéro de page
+$num_page = numero_page();
 
 //on définit le nombre d'articles par page 
 $articles_par_page = 2;
@@ -53,16 +46,21 @@ $articles_par_page = 2;
 //Puis on calcul le n° de l'article qui doit s'afficher en premier
 $num_article = ($num_page-1)*$articles_par_page;
 
-//---------------------------------Récupération des articles à afficher----------------------------
+//---------------------------------Connexion à la BDD----------------------------
+
+//on crée l'objet PDO $bdd
 include('connecter-bdd.php');
 
-//on récupère les articles à afficher en fonction des options de pagination
-$sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y %H:%i:%s\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT ' . $num_article . ',' . $articles_par_page . '';
+//---------------------------------Récupération des articles à afficher----------------------------
 
+//on prépare la requête de récupération des articles
+$sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y %H:%i:%s\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT ' . $num_article . ',' . $articles_par_page . '';
 $requete = $bdd->prepare($sql);
+
+//on execute la requête préparée
 $requete->execute();
 
-//on affiche tous les articles récupérés
+//on affiche les articles récupérés
 while ($article = $requete->fetch())
 {
 ?>
@@ -100,12 +98,14 @@ $requete->closeCursor();
 
 //--------------------------------------------Création de la pagination----------------
 
-//On récupère le nombre total d'articles du blog
+//on prépare la requête de récupération de tous les articles 
 $sql = 'SELECT COUNT(*) AS nb_billets FROM billets';
-
 $requete = $bdd->prepare($sql);
+
+//on exécute la requête préparée
 $requete->execute();
 
+//on récupère le nombre d'articles
 $req = $requete->fetch();
 $nbr_articles = $req['nb_billets'];
 
