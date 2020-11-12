@@ -13,8 +13,10 @@
 
 <body>
 
+    <!--on affiche les droits d'accès-->
     <section class="bloc center">
         <p style="text-align:center;">
+            Droits accès :<br>
             <?php include('afficher-acces.php'); ?>
         </p>
     </section>
@@ -22,7 +24,7 @@
     <h1>Accueil</h1>
 
 <?php
-//Si l'accès admin est autorisé on affiche l'option "ajouter un article"
+//si l'accès admin est autorisé on affiche l'option "ajouter un article"
     if (isset($admin_access) AND $admin_access == true)
     {
     ?>
@@ -31,11 +33,8 @@
         </p> 
     <?php
     }
-?>
 
-<?php
-
-//-------------------------------Calcul des articles à afficher (pagination) -----------------
+//---------------------------------Calcul du premier article à afficher --------------------------
 
 //on récupère le numéro de page
 $num_page = numero_page();
@@ -46,7 +45,7 @@ $articles_par_page = 2;
 //Puis on calcul le n° de l'article qui doit s'afficher en premier
 $num_article = ($num_page-1)*$articles_par_page;
 
-//---------------------------------Connexion à la BDD----------------------------
+//---------------------------------Connexion à la BDD---------------------------------------------
 
 //on crée l'objet PDO $bdd
 include('connecter-bdd.php');
