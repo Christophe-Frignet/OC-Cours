@@ -1,10 +1,10 @@
 <?php
 
-//on récupère les données du commentaire
-$id_article = $_POST['id_article'];
-$auteur = $_POST['auteur'];
-$commentaire = $_POST['commentaire'];
-$date_commentaire = $_POST['date_commentaire'];
+//on réduit la faille XSS des données récupérées
+$id_article = htmlspecialchars($_POST['id_article']);
+$auteur = htmlspecialchars($_POST['auteur']);
+$commentaire = htmlspecialchars($_POST['commentaire']);
+$date_commentaire = htmlspecialchars($_POST['date_commentaire']);
 
 //On se connecte à la bdd
 include('connecter-bdd.php');
