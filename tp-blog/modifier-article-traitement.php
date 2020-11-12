@@ -17,7 +17,8 @@ $req->execute(array(
     'id' => $id_article
     ));
 
-$req->closeCursor(); // Important : on libère le curseur pour la prochaine requête
+//on libère le curseur pour la prochaine requête
+$req->closeCursor(); 
 
 //on affiche la page de l'article modifié
 header('Location: article.php?id_billet= ' . $id_article . '');

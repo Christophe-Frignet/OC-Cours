@@ -25,11 +25,11 @@
 include('connecter-bdd.php');
 
 //On récupère l'article demandé
-$id_billet = htmlspecialchars($_GET['id_billet']);
+$id_article = htmlspecialchars($_GET['id_billet']);
 
 $req = $bdd->prepare('SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y\') AS date_creation_fr FROM billets WHERE id = ?');
 
-$req->execute(array($id_billet));
+$req->execute(array($id_article));
 
 $article = $req->fetch();
 
@@ -72,7 +72,7 @@ $sql = 'SELECT id_billet, auteur, commentaire, DATE_FORMAT(date_commentaire,\'%d
 
 $req = $bdd->prepare($sql);
 
-$req->execute(array($id_billet));
+$req->execute(array($id_article));
 
 //On affiche les commentaires récupérés
 ?>

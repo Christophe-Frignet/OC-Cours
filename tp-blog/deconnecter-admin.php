@@ -2,7 +2,7 @@
 session_start();
 
 //on supprime l'accès
-unset($_SESSION['access']);
+session_destroy();
 
 //on récupère la page qui a demandé la déconnexion
 $page = $_SERVER['HTTP_REFERER'];

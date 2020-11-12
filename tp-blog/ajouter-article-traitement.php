@@ -16,7 +16,8 @@ $req->execute(array(
     'contenu' => $contenu_article
     ));
 
-$req->closeCursor(); // Important : on libère le curseur pour la prochaine requête
+//on libère le curseur pour la prochaine requête
+$req->closeCursor(); 
 
 //on retourne à la page d'accueil
 header('Location: index.php');

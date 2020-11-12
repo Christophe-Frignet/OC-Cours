@@ -4,7 +4,7 @@ session_start();
 //si on a bien un id et un mot de passe passés par le formulaire
 if (isset($_POST['id_admin_access']) AND isset($_POST['pwd_admin_access'])) {
 
-    //On ouvre les deux variables de session
+    //On initialise les deux variables de session
     $_SESSION['id_admin'] = $_POST['id_admin_access'];
     $_SESSION['pass_admin'] = $_POST['pwd_admin_access'];
 
