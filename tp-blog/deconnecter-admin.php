@@ -8,6 +8,6 @@ session_destroy();
 $page = $_SERVER['HTTP_REFERER'];
 
 //on retourne sur la page qui a demandé la déconnexion
-//header('Location: ' . $page);
+header('Location: ' . $page);
 
 ?>
