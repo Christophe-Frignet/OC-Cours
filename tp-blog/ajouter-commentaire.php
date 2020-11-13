@@ -4,7 +4,7 @@
 
         <input type="hidden" name="id_article" value="<?php echo $id_article ?>">
 
-        <input type="hidden" name="date_commentaire" value="<?php echo date('Y-m-d') ?>">
+        <input type="hidden" name="date_commentaire" value="<?php echo date('Y-m-d H:i:s') ?>">
         
         <label for="auteur">Auteur</label><br>
         <input type="text" id="auteur" name="auteur"><br>
