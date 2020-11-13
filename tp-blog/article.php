@@ -88,13 +88,21 @@ if(isset($_GET['id_billet']))
         //on affiche le module d'ajout de commentaires
         include('ajouter-commentaire.php');
     }
+    else
+    {
+    ?>
+        <section class="bloc center padding"  style="text-align:center;">
+        <h2>Je vois qu'on sait modifier les variables ;)</h2>
+        </section>
+    <?php
+    }
 }
 
 //Sinon, le numéro d'article n'existe pas et on affiche un message d'erreur
 else {
 ?>
     <section class="bloc center padding"  style="text-align:center;">
-        <h2>Numéro d'article invalide</h2>
+        <h2>Hmm vous n'avez pas chargé la page normalement ;)</h2>
     </section>
 <?php
 }
