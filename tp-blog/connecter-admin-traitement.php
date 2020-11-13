@@ -2,11 +2,11 @@
 session_start();
 
 //si on a bien un id et un mot de passe passés par le formulaire
-if (isset($_POST['id_admin_access']) AND isset($_POST['pwd_admin_access'])) {
+if (isset($_POST['id_admin']) AND isset($_POST['mdp_formulaire'])) {
 
     //on limite les risques de faille XSS
-    $id_admin = htmlspecialchars($_POST['id_admin_access']);
-    $mdp_formulaire = htmlspecialchars($_POST['pwd_admin_access']);
+    $id_admin = htmlspecialchars($_POST['id_admin']);
+    $mdp_formulaire = htmlspecialchars($_POST['mdp_formulaire']);
 
     //on s'assure du typage des données
     $id_admin = (string)$id_admin;

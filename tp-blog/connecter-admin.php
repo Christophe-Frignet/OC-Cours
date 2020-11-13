@@ -18,11 +18,11 @@
     <h2>Connexion administrateur</h2>
         <form  method="POST" action="connecter-admin-traitement.php">
                     
-            <label for="id_admin_access">Identifiant</label><br>
-            <input type="text" id="id_admin_access" name="id_admin_access"><br>
+            <label for="id_admin">Identifiant</label><br>
+            <input type="text" id="id_admin" name="id_admin"><br>
     
-            <label for="pwd_admin_access">Mot de passe</label><br>
-            <input type="text" id="pwd_admin_access" name="pwd_admin_access"><br>
+            <label for="mdp_formulaire">Mot de passe</label><br>
+            <input type="password" id="mdp_formulaire" name="mdp_formulaire"><br>
 
             <input type="submit" value="Envoyer">
         </form>
