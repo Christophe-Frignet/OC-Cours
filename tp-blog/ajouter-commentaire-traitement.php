@@ -18,7 +18,7 @@ if(isset($_POST['id_article']) AND isset($_POST['auteur']) AND isset($_POST['com
 	include('connecter-bdd.php');
 
 	//On ajoute le nouveau commentaire dans la BDD
-	$req = $bdd->prepare('INSERT INTO commentaires (id_billet, auteur, commentaire, date_commentaire) VALUES ( :id_article, :auteur, :commentaire, :date_commentaire)');
+	$req = $bdd->prepare('INSERT INTO commentaires (id_article, auteur, commentaire, date_commentaire) VALUES ( :id_article, :auteur, :commentaire, :date_commentaire)');
 
 	$req->execute(array(
 		'id_article' => $id_article,

@@ -53,7 +53,7 @@ include('connecter-bdd.php');
 //---------------------------------Récupération des articles à afficher----------------------------
 
 //on prépare la requête de récupération des articles
-$sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y %H:%i:%s\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT ' . $num_article . ',' . $articles_par_page . '';
+$sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y %H:%i:%s\') AS date_creation_fr FROM articles ORDER BY date_creation DESC LIMIT ' . $num_article . ',' . $articles_par_page . '';
 $requete = $bdd->prepare($sql);
 
 //on execute la requête préparée
@@ -99,7 +99,7 @@ $requete->closeCursor();
 //--------------------------------------------Création de la pagination----------------
 
 //on prépare la requête de récupération de tous les articles 
-$sql = 'SELECT COUNT(*) AS nb_billets FROM billets';
+$sql = 'SELECT COUNT(*) AS nb_billets FROM articles';
 $requete = $bdd->prepare($sql);
 
 //on exécute la requête préparée

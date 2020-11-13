@@ -16,7 +16,7 @@ if(isset($_POST['titre']) AND isset($_POST['contenu']) AND isset($_POST['id']))
     include('connecter-bdd.php');
 
     //on prépare la requête de mise à jour des données dans la table
-    $sql = 'UPDATE billets SET titre = :titre , contenu = :contenu WHERE id = :id'; 
+    $sql = 'UPDATE articles SET titre = :titre , contenu = :contenu WHERE id = :id'; 
     $req = $bdd->prepare($sql);
 
     //on exécute la requête

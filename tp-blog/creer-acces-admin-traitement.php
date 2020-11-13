@@ -18,7 +18,7 @@ if (isset($_POST['id_admin']) AND isset($_POST['mdp_admin'])) {
     include('connecter-bdd.php');
 
     //On prépare la requête d'enregistrement des accès
-    $sql = 'INSERT INTO acces_admin (id_admin, pwd_admin) VALUES (:id, :pwd);';
+    $sql = 'INSERT INTO acces_admin (id_admin, mdp_admin) VALUES (:id, :pwd);';
     $req = $bdd->prepare($sql);
 
     //on exécute la requête

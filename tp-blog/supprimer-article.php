@@ -13,7 +13,7 @@ if(isset($_GET['id']))
     include('connecter-bdd.php');
 
     //on prépare la requête de suppresion de l'article
-    $sql ='DELETE FROM billets WHERE id = :id';
+    $sql ='DELETE FROM articles WHERE id = :id';
     $req = $bdd->prepare($sql);
 
     //on exécute la requête

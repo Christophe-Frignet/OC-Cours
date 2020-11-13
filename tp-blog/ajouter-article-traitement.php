@@ -13,7 +13,7 @@ if(isset($_POST['titre']) AND isset($_POST['contenu']))
     include('connecter-bdd.php');
 
     //On enregistre les nouvelles données dans la table
-    $sql = 'INSERT INTO billets (titre, contenu) VALUES ( :titre, :contenu)';
+    $sql = 'INSERT INTO articles (titre, contenu) VALUES ( :titre, :contenu)';
     $req = $bdd->prepare($sql);
 
     $req->execute(array(

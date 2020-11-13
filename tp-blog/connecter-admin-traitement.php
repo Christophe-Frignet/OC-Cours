@@ -16,7 +16,7 @@ if (isset($_POST['id_admin']) AND isset($_POST['mdp_formulaire'])) {
     include('connecter-bdd.php');
 
     //on prépare la requête qui trouvera le mot de passe correspondant à l'id
-    $sql = 'SELECT id, id_admin, pwd_admin FROM acces_admin WHERE id_admin = :id_admin;';
+    $sql = 'SELECT id, id_admin, mdp_admin FROM acces_admin WHERE id_admin = :id_admin;';
 
     //on exécute la requête
     $req = $bdd->prepare($sql);
@@ -26,7 +26,7 @@ if (isset($_POST['id_admin']) AND isset($_POST['mdp_formulaire'])) {
 
     //on recupère le mot de passe
     $res = $req->fetch();
-    $mdp_bdd = $res['pwd_admin'];
+    $mdp_bdd = $res['mdp_admin'];
 
     //si le mot de passe envoyé par le formulaire correspond au mot de passe récupéré
     if (password_verify($mdp_formulaire, $mdp_bdd)) {

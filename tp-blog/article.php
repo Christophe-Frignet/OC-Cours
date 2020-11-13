@@ -37,7 +37,7 @@ if(isset($_GET['id_billet']))
     include('connecter-bdd.php');
 
     //on prépare la requête de récupération de l'article demandé
-    $sql ='SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y\') AS date_creation_fr FROM billets WHERE id = ?';
+    $sql ='SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y\') AS date_creation_fr FROM articles WHERE id = ?';
     $req = $bdd->prepare($sql);
 
     //on exécute la requête

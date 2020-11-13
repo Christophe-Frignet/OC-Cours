@@ -1,6 +1,6 @@
 <?php
 //On prépare la requête pour récupérer les commentaires de l'article
-$sql = 'SELECT id_billet, auteur, commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y %H:%i:%s\') AS date_commentaire_fr FROM commentaires WHERE id_billet = ?';
+$sql = 'SELECT id_article, auteur, commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y %H:%i:%s\') AS date_commentaire_fr FROM commentaires WHERE id_article = ?';
 $req = $bdd->prepare($sql);
 
 //on exécute la requête
