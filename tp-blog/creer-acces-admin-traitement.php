@@ -7,6 +7,10 @@ if (isset($_POST['id_admin']) AND isset($_POST['mdp_admin'])) {
     $id_admin = htmlspecialchars($_POST['id_admin']);
     $mdp_admin = htmlspecialchars($_POST['mdp_admin']);
 
+    //on s'assure du typage des données
+    $id_admin = (string)$id_admin;
+    $mdp_admin = (string)$mdp_admin;
+
     //on crypte le mot de passe avant de le mettre dans la bdd
     $mdp_admin_crypte = password_hash($mdp_admin, PASSWORD_DEFAULT);
 

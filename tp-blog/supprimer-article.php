@@ -6,6 +6,9 @@ if(isset($_GET['id']))
     //on réduit la faille XSS de l'id récupéré
     $id_article = htmlspecialchars($_GET['id']);
 
+    //on s'assure du bon typage de l'id
+    $id_article = (int)$id_article;
+
     //on se connecte à la base de données
     include('connecter-bdd.php');
 

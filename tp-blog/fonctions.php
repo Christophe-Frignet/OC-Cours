@@ -2,10 +2,14 @@
 
 function numero_page()
 {
-    //si on connait le numéro de page on s'en sert
+    //si un numéro de page est transmis en GET
     if(isset($_GET['num_page']))
     {
+        //on réduit la faille XSS de la donnée récupérée
         $num_page = htmlspecialchars($_GET['num_page']);
+
+        //on s'assure du bon typage de la donnée
+        $num_page = (int)$num_page;
     }
     //sinon on considère être sur la page n°1
     else

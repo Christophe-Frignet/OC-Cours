@@ -8,6 +8,12 @@ if(isset($_POST['id_article']) AND isset($_POST['auteur']) AND isset($_POST['com
 	$commentaire = htmlspecialchars($_POST['commentaire']);
 	$date_commentaire = htmlspecialchars($_POST['date_commentaire']);
 
+	//on s'assure du typage des données transmises
+	$id_article = (int)$id_article;
+	$auteur = (string)$auteur;
+	$commentaire = (string)$commentaire;
+	$date_commentaire = (string)$date_commentaire;
+
 	//On se connecte à la bdd
 	include('connecter-bdd.php');
 

@@ -5,6 +5,10 @@ if(isset($_POST['titre']) AND isset($_POST['contenu']))
     $titre_article = htmlspecialchars($_POST['titre']);
     $contenu_article = htmlspecialchars($_POST['contenu']);
 
+    //on s'assure du typage des données transmises
+    $contenu_article = (string)$contenu_article;
+    $titre_article = (string)$titre_article;
+
     //on se connecte à la base de données
     include('connecter-bdd.php');
 

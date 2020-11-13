@@ -30,6 +30,9 @@ if(isset($_GET['id_billet']))
     //on réduit la faille XSS de l'id reçu
     $id_article = htmlspecialchars($_GET['id_billet']);
 
+    //on s'assure du typage de l'id
+    $id_article = (int)$id_article;
+
     //on se connecte à la bdd
     include('connecter-bdd.php');
 

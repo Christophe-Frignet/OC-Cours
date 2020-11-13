@@ -8,6 +8,10 @@ if (isset($_POST['id_admin_access']) AND isset($_POST['pwd_admin_access'])) {
     $id_admin = htmlspecialchars($_POST['id_admin_access']);
     $mdp_formulaire = htmlspecialchars($_POST['pwd_admin_access']);
 
+    //on s'assure du typage des données
+    $id_admin = (string)$id_admin;
+    $mdp_formulaire = (string)$mdp_formulaire;
+
     //On se connecte à la BDD
     include('connecter-bdd.php');
 

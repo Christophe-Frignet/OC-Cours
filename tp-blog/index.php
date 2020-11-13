@@ -66,14 +66,14 @@ while ($article = $requete->fetch())
     <section class="bloc center padding">
 
     <h3>
-        <?php echo htmlspecialchars($article['titre']); ?>
+        <?php echo $article['titre']; ?>
             - Le 
-            <?php echo $article['date_creation_fr'] ?>
+            <?php echo $article['date_creation_fr']; ?>
     </h3>
     <p>
-        <?php echo($article['contenu']);?><br /><br />
+        <?php echo $article['contenu']; ?><br /><br />
 
-        <a href="article.php?id_billet=<?php echo($article['id']);?>">Afficher l'article et ses commentaires >></a>
+        <a href="article.php?id_billet=<?php echo $article['id']; ?>">Afficher l'article et ses commentaires >></a>
 
         <?php
         //Si l'accès admin est autorisé on affiche les options de l'administrateur
@@ -81,8 +81,8 @@ while ($article = $requete->fetch())
             {
             ?>
             <ul>
-                <li><a href="modifier-article.php?id_billet=<?php echo($article['id']);?>">Modifier l'article</a></li>
-                <li><a href="supprimer-article.php?id=<?php echo($article['id']);?>">Supprimer l'article</a></li>
+                <li><a href="modifier-article.php?id_billet=<?php echo $article['id']; ?>">Modifier l'article</a></li>
+                <li><a href="supprimer-article.php?id=<?php echo $article['id']; ?>">Supprimer l'article</a></li>
             </ul>    
             <?php
             }

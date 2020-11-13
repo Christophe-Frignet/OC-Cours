@@ -20,6 +20,9 @@ if(isset($_GET['id_billet']))
     //on réduit la faille XSS sur l'id de l'article
     $id_article = htmlspecialchars($_GET['id_billet']);
 
+    //on s'assure du bon typage de l'id
+    $id_article = (int)$id_article;
+
     //on se connecte à la bdd
     include('connecter-bdd.php');
 
@@ -58,7 +61,9 @@ if(isset($_GET['id_billet']))
 
             <label for="contenu">Contenu de l'article</label><br>
             <textarea id="contenu" name="contenu" rows="10" cols="100">
+
                 <?php echo $contenu_article;?>
+                
             </textarea><br><br>
 
             <input type="hidden" name="id" value="<?php echo $id_article;?>">
