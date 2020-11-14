@@ -1,4 +1,5 @@
 <?php
+
 function recupererArticles($num_p,$art_p)
 {
     //on récupère le numéro de page
@@ -23,6 +24,30 @@ function recupererArticles($num_p,$art_p)
 
     //on retourne la requête exécutée
     return $requete;
+}
+
+function nombrePages($art_p)
+{
+
+    $articles_par_page = $art_p;
+    //on prépare la requête de récupération de tous les articles
+
+    require('connecter-bdd.php');
+
+    $sql = 'SELECT COUNT(*) AS nb_articles FROM articles';
+    $req = $bdd->prepare($sql);
+
+    //on exécute la requête préparée
+    $req->execute();
+
+    //on récupère le nombre d'articles
+    $res = $req->fetch();
+    $nbr_articles = $res['nb_articles'];
+
+    //on déduit le nombre de pages nécessaires
+    $nbr_pages = ceil(($nbr_articles/$articles_par_page));
+
+    return $nbr_pages;
 }
 
 function numeroPage($get)
@@ -52,27 +77,4 @@ function articlesParPage($nbr)
     return $articles_par_page;
 }
 
-function nombrePages($art_p)
-{
-
-    $articles_par_page = $art_p;
-    //on prépare la requête de récupération de tous les articles
-
-    require('connecter-bdd.php');
-
-    $sql = 'SELECT COUNT(*) AS nb_articles FROM articles';
-    $req = $bdd->prepare($sql);
-
-    //on exécute la requête préparée
-    $req->execute();
-
-    //on récupère le nombre d'articles
-    $res = $req->fetch();
-    $nbr_articles = $res['nb_articles'];
-
-    //on déduit le nombre de pages nécessaires
-    $nbr_pages = ceil(($nbr_articles/$articles_par_page));
-
-    return $nbr_pages;
-}
 ?>
