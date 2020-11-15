@@ -44,10 +44,3 @@
     </p>
 
 </section>
-
-<?php
-
-//on affiche le module d'ajout de commentaires
-include('ajouter-commentaire.php');
-
-?>

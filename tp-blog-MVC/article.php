@@ -10,9 +10,10 @@ if(isset($_GET['id_billet']))
     if($article != false)
     {
         require('afficher-article.php');
-        
+
         $commentaires = recupererCommentaires($id_article);
         require('afficher-commentaires.php');
+        require('afficher-ajout-commentaire.php');
     }
 }
 else
