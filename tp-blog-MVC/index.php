@@ -1,23 +1,14 @@
-<?php session_start(); ?>
+<?php
+session_start(); 
 
-<?php require('modele.php'); ?>
+require('modele.php');
 
-<?php //on définit le numéro de la page
-    if (isset($_GET['num_page']))
-    {
-        $num_page = numeroPage($_GET['num_page']);
-    } else {
-        $num_page = 1;
-    }
+require('definir-numero-page.php');
+
+$articles_par_page = articlesParPage(2);
+$nbr_pages = nombrePages($articles_par_page);
+$requete = recupererArticles($num_page,$articles_par_page);
+
+require('afficher-accueil.php');
+
 ?>
-    
-<?php //on définit le nombre d'articles par page 
-    $articles_par_page = articlesParPage(2);
-?>
-
-
-<?php $nbr_pages = nombrePages($articles_par_page);?>
-
-<?php $requete = recupererArticles($num_page,$articles_par_page); ?>
-
-<?php require('afficher-accueil.php'); ?>
