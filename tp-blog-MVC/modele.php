@@ -1,6 +1,6 @@
 <?php
 
-function recupererArticles($num_p,$art_p)
+function recupererListeArticles($num_p,$art_p) 
 {
     //on récupère le numéro de page
     $num_page = $num_p;
