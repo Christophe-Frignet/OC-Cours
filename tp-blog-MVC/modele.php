@@ -70,7 +70,7 @@ function numeroPage($get)
     } 
 }
 
-function securiserIdArticle($id_article)
+function idArticle($id_article)
 {
     //on réduit la faille XSS de l'id reçu
     $id_article = htmlspecialchars($id_article);
