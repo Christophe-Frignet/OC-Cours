@@ -1,14 +1,8 @@
 <?php
 
-function recupererListeArticles($num_p,$art_p) 
+function recupererListeArticles($num_page,$articles_par_page) 
 {
-    //on récupère le numéro de page
-    $num_page = $num_p;
-
-    //on définit le nombre d'articles par page 
-    $articles_par_page = $art_p;
-
-    //Puis on calcul le n° de l'article qui doit s'afficher en premier
+    //On calcul le n° de l'article qui doit s'afficher en premier
     $num_article = ($num_page-1)*$articles_par_page;
 
     //on se connecte à la bdd
