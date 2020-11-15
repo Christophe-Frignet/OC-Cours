@@ -4,7 +4,7 @@
         {
         ?>
             <p style="text-align:center;">
-                <a href="ajouter-article.php">+ Ajouter un article</a>
+                <a href="afficher-ajouter-article.php">+ Ajouter un article</a>
             </p> 
         <?php
         }

@@ -3,8 +3,7 @@
 
     <?php
         while ($commentaire = $commentaires->fetch())
-        {
-        ?>
+        {?>
             <p>
                 <b><?php echo htmlspecialchars($commentaire['auteur']);?></b>
                 - Le 

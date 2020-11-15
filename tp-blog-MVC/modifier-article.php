@@ -45,7 +45,7 @@ if(isset($_GET['id_billet']))
     ?>
     <!---------------------------------------Navigation------------------------------->
     
-    <p style="text-align: center;"><a href="index.php"><< Retour à la liste des articles</a></p>
+    <p style="text-align: center;"><a href="index.php"><< Retour à l'accueil'</a></p>
     <p style="text-align: center;"><a href="article.php?id_billet=<?php echo $id_article;?>"><< Voir l'article</a></p>
 
     <!---------------------------------------Formulaire de modification--------------->
