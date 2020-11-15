@@ -10,6 +10,9 @@ if(isset($_GET['id_billet']))
     if($article != false)
     {
         require('afficher-article.php');
+        
+        $commentaires = recupererCommentaires($id_article);
+        require('afficher-commentaires.php');
     }
 }
 else
@@ -17,4 +20,4 @@ else
     echo $article;
 }
 
-include('afficher-article.php');
+//include('afficher-article.php');

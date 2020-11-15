@@ -47,13 +47,7 @@
 
 <?php
 
-//on affiche les commentaires de l'article
-include('afficher-commentaires.php');
-
 //on affiche le module d'ajout de commentaires
 include('ajouter-commentaire.php');
 
 ?>
-
-</body>
-</html>

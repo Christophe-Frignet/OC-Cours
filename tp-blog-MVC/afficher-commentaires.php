@@ -1,19 +1,9 @@
-<?php
-//On prépare la requête pour récupérer les commentaires de l'article
-$sql = 'SELECT id_article, auteur, commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y %H:%i:%s\') AS date_commentaire_fr FROM commentaires WHERE id_article = ?';
-$req = $bdd->prepare($sql);
-
-//on exécute la requête
-$req->execute(array($id_article));
-
-//On affiche les commentaires récupérés
-?>
 <section class="bloc center padding">
 
     <h1>Commentaires</h1>
 
     <?php
-    while ($commentaire = $req->fetch())
+    while ($commentaire = $commentaires->fetch())
     {
     ?>
         <p>
@@ -25,7 +15,7 @@ $req->execute(array($id_article));
         </p>
     <?php
     }
-    $req->closeCursor();
+    $commentaires->closeCursor();
     ?>
 
 </section>
