@@ -14,7 +14,7 @@ USE tp_blog;                      -- on sélectionne la bdd sur laquelle on va t
 CREATE TABLE articles
 (
   id            TINYINT(1)    UNSIGNED NOT NULL AUTO_INCREMENT,   -- 255 articles possibles
-  titre         VARCHAR(25)   NOT NULL,                           -- longueur max 25 caractères
+  titre         VARCHAR(50)   NOT NULL,                           -- longueur max 50 caractères
   contenu       TEXT          NOT NULL,                           -- longueur max 65535 caractères
   date_creation DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP, -- de 1000-01-01 00:00:00 à 9999-12-31 23:59:59
 	
