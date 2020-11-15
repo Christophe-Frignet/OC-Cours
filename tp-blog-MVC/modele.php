@@ -17,13 +17,13 @@ function recupererArticles($num_p,$art_p)
     //on prépare la requête de récupération des articles
     $sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y %H:%i:%s\') AS date_creation_fr FROM articles ORDER BY date_creation DESC LIMIT ' . $num_article . ',' . $articles_par_page . '';
 
-    $requete = $bdd->prepare($sql);
+    $liste_articles = $bdd->prepare($sql);
 
     //on place la requête exécutée dans une variable
-    $requete->execute();
+    $liste_articles->execute();
 
     //on retourne la requête exécutée
-    return $requete;
+    return $liste_articles;
 }
 
 function nombrePages($art_p)

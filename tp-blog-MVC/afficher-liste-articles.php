@@ -1,6 +1,6 @@
 <section class="">
     <?php
-        while ($article = $requete->fetch())
+        while ($article = $liste_articles->fetch())
         {
         ?>
             <section class="bloc center padding">
@@ -33,6 +33,6 @@
             </section>
         <?php
         }
-        $requete->closeCursor();
+        $liste_articles->closeCursor();
     ?> 
 </section>
