@@ -7,4 +7,4 @@ if (isset($_GET['num_page']))
 else
 {
     $num_page = 1;
-}
+} 

@@ -52,29 +52,22 @@ function nombrePages($art_p)
 
 function numeroPage($get)
 {
-        //on réduit la faille XSS de la donnée récupérée
-        $get = htmlspecialchars($get);
+    //on réduit la faille XSS du $_GET reçu
+    $get = htmlspecialchars($get);
 
-        //on s'assure du bon typage de la donnée
-        $num_page = (int)$get;
-
-        //si le numéro de page est supérieur à 100
-        if($num_page > 100)
-        {   //on affiche un message d'erreur
-            ?>
-                <section class="bloc center padding"  style="text-align:center;">
-                <h2>Bizarre ce numéro de page...</h2>
-                </section>
-            <?php
-         }
-
-    return $num_page;
-}
-
-function articlesParPage($nbr)
-{
-    $articles_par_page = $nbr;
-    return $articles_par_page;
+    //on s'assure du typage de la donnée
+    $num_page = (int)$get;
+    
+    //on définit le numéro de la page
+    if ($num_page < 100)
+    {
+        return $num_page;
+    }
+    else
+    {
+        $num_page = 1;
+        return $num_page;
+    } 
 }
 
 function securiserIdArticle($id_article)
