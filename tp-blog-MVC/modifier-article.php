@@ -15,10 +15,10 @@
 //---------------------------------------Récupération de l'article à modifier------------------
 
 //si on récupère un id article dans le $_GET
-if(isset($_GET['id_billet']))
+if(isset($_GET['id_article'])) 
 {
     //on réduit la faille XSS sur l'id de l'article
-    $id_article = htmlspecialchars($_GET['id_billet']);
+    $id_article = htmlspecialchars($_GET['id_article']);
 
     //on s'assure du bon typage de l'id
     $id_article = (int)$id_article;
@@ -46,7 +46,7 @@ if(isset($_GET['id_billet']))
     <!---------------------------------------Navigation------------------------------->
     
     <p style="text-align: center;"><a href="index.php"><< Retour à l'accueil'</a></p>
-    <p style="text-align: center;"><a href="article.php?id_billet=<?php echo $id_article;?>"><< Voir l'article</a></p>
+    <p style="text-align: center;"><a href="article.php?id_article=<?php echo $id_article;?>"><< Voir l'article</a></p>
 
     <!---------------------------------------Formulaire de modification--------------->
    
