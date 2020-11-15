@@ -10,5 +10,3 @@ $nbr_pages = nombrePages($articles_par_page);
 $liste_articles = recupererArticles($num_page,$articles_par_page);
 
 require('afficher-accueil.php');
-
-?>

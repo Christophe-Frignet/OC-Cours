@@ -76,5 +76,3 @@ function articlesParPage($nbr)
     $articles_par_page = $nbr;
     return $articles_par_page;
 }
-
-?>
