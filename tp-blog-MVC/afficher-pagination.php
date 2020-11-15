@@ -5,7 +5,7 @@
         for ($pag = 1; $pag <= $nbr_pages; $pag++)
         {
         ?>
-        <a href="?num_page=<?php echo $num;?>">| Page <?php echo $num;?> |</a>
+        <a href="?num_page=<?=$num;?>">| Page <?=$num;?> |</a>
 
         <?php $num = $num + 1;
         }

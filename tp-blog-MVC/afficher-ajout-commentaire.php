@@ -2,9 +2,9 @@
     <h2>Ajouter un commentaire</h2>
     <form  method="POST" action="ajouter-commentaire-traitement.php">
 
-        <input type="hidden" name="id_article" value="<?php echo $id_article ?>">
+        <input type="hidden" name="id_article" value="<?=$id_article?>">
 
-        <input type="hidden" name="date_commentaire" value="<?php echo date('Y-m-d H:i:s') ?>">
+        <input type="hidden" name="date_commentaire" value="<?=date('Y-m-d H:i:s')?>">
         
         <label for="auteur">Auteur</label><br>
         <input type="text" id="auteur" name="auteur"><br>

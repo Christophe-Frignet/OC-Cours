@@ -46,7 +46,7 @@ if(isset($_GET['id_article']))
     <!---------------------------------------Navigation------------------------------->
     
     <p style="text-align: center;"><a href="index.php"><< Retour à l'accueil'</a></p>
-    <p style="text-align: center;"><a href="article.php?id_article=<?php echo $id_article;?>"><< Voir l'article</a></p>
+    <p style="text-align: center;"><a href="article.php?id_article=<?=$id_article;?>"><< Voir l'article</a></p>
 
     <!---------------------------------------Formulaire de modification--------------->
    
@@ -57,16 +57,16 @@ if(isset($_GET['id_article']))
         <form action="modifier-article-traitement.php" method="post">
 
             <label for="titre">Titre de l'article</label><br>
-            <input type="text" id="titre" name="titre" value="<?php echo $titre_article;?>"><br><br>
+            <input type="text" id="titre" name="titre" value="<?=$titre_article;?>"><br><br>
 
             <label for="contenu">Contenu de l'article</label><br>
             <textarea id="contenu" name="contenu" rows="10" cols="100">
 
-                <?php echo $contenu_article;?>
+                <?=$contenu_article;?>
                 
             </textarea><br><br>
 
-            <input type="hidden" name="id" value="<?php echo $id_article;?>">
+            <input type="hidden" name="id" value="<?=$id_article;?>">
 
             <input type="submit" value="Valider modifications">
 

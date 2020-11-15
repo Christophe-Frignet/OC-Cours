@@ -22,12 +22,12 @@
 <section class="bloc center padding">
 
     <h3>
-        <?php echo htmlspecialchars($article['titre']); ?>
+        <?=htmlspecialchars($article['titre']);?>
             - Le 
-            <?php echo $article['date_creation_fr'] ?>
+            <?=$article['date_creation_fr']?>
     </h3>
     <p>
-        <?php echo($article['contenu']);?><br /><br />
+        <?=$article['contenu'];?><br /><br />
 
         <?php
         //Si l'accès admin est autorisé on affiche les options de l'administrateur
@@ -35,8 +35,8 @@
             {
             ?>
             <ul>
-                <li><a href="modifier-article.php?id_billet=<?php echo($article['id']);?>">Modifier l'article</a></li>
-                <li><a href="supprimer-article.php?id=<?php echo($article['id']);?>">Supprimer l'article</a></li>
+                <li><a href="modifier-article.php?id_billet=<?=$article['id'];?>">Modifier l'article</a></li>
+                <li><a href="supprimer-article.php?id=<?=($article['id']);?>">Supprimer l'article</a></li>
             </ul>    
             <?php
             }

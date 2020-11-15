@@ -5,11 +5,14 @@
         while ($commentaire = $commentaires->fetch())
         {?>
             <p>
-                <b><?php echo htmlspecialchars($commentaire['auteur']);?></b>
-                - Le 
-                <?php echo $commentaire['date_commentaire_fr'];?> 
+                <b>
+                    <?=htmlspecialchars($commentaire['auteur']);?>
+                </b>
+                - Le <?=$commentaire['date_commentaire_fr'];?> 
                 <br />
-                <i><?php echo nl2br(htmlspecialchars($commentaire['commentaire'])); ?></i>
+                <i>
+                    <?=nl2br(htmlspecialchars($commentaire['commentaire']));?>
+                </i>
             </p>
         <?php
         }
