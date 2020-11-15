@@ -3,9 +3,9 @@
 require('modele.php');
 
 //On contrôle l'ID passé en GET
-if(isset($_GET['id_billet']))
+if(isset($_GET['id_article'])) 
 {
-    $id_article = securiserIdArticle($_GET['id_billet']);
+    $id_article = securiserIdArticle($_GET['id_article']);
 }
 else
 {
