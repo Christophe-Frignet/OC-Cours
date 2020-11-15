@@ -77,7 +77,7 @@ function articlesParPage($nbr)
     return $articles_par_page;
 }
 
-function clarifierIdArticle($id_article)
+function securiserIdArticle($id_article)
 {
     //on réduit la faille XSS de l'id reçu
     $id_article = htmlspecialchars($id_article);
