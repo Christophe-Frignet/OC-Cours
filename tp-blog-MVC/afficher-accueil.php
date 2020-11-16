@@ -1,26 +1,17 @@
-<!DOCTYPE html>
+<?php
+$titre_page = 'Accueil';
 
-<html lang="fr">
+ob_start();
+    require('afficher-acces.php'); ?>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>TP Blog</title>
-    </head>
+    <h1>Accueil</h1>
 
-    <body>
+    <?php
+    require('afficher-option-ajout-article.php');
+    require('afficher-liste-articles.php');
+    require('afficher-pagination.php');
 
-        <?php require('afficher-acces.php'); ?>
+    $contenu_page = ob_get_clean();
 
-        <h1>Accueil</h1>
-
-        <?php require('afficher-option-ajout-article.php'); ?>
-
-        <?php require('afficher-liste-articles.php'); ?>
-
-        <?php require('afficher-pagination.php'); ?>
-
-    </body>
-
-</html> 
+require('template.php');
+?>
