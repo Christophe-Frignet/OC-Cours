@@ -108,6 +108,32 @@ function recupererCommentaires($id_article)
     return $commentaires;
 }
 
+function ajouterArticle($post_titre_article, $post_contenu_article)
+{
+    //on réduit la faille XSS sur la récupération des données
+    $titre_article = htmlspecialchars($post_titre_article);
+    $contenu_article = htmlspecialchars($post_contenu_article);
+
+    //on s'assure du typage des données transmises
+    $titre_article = (string)$titre_article;
+    $contenu_article = (string)$contenu_article;
+
+    //on se connecte à la base de données
+    $bdd = connecterBdd();
+
+    //On enregistre les nouvelles données dans la table
+    $sql = 'INSERT INTO articles (titre, contenu) VALUES ( :titre, :contenu)';
+    $req = $bdd->prepare($sql);
+
+    $req->execute(array(
+        'titre' => $titre_article,
+        'contenu' => $contenu_article
+        ));
+
+    //on libère le curseur pour la prochaine requête
+    $req->closeCursor(); 
+}
+
 function connecterBdd()
 {
     $dsn = 'mysql:host=localhost;dbname=tp_blog';

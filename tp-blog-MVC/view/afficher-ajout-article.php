@@ -14,7 +14,7 @@
     <h1>Ajouter article</h1>
 
     <section class="bloc center padding">
-        <form action="ajouter-article-traitement.php" method="post">
+        <form action="index.php?action=ajouterArticle" method="post">
 
             <label for="titre">Titre de l'article</label><br>
             <input type="text" id="titre" name="titre" value="Titre de l'article"><br><br>

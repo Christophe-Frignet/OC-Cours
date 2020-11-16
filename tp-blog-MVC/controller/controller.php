@@ -37,3 +37,14 @@ function afficherArticle()
         header('Location: index.php');
     } 
 }
+
+function afficherAjoutArticle()
+{
+    require('view/afficher-ajout-article.php');
+}
+
+function ajouterArticleController($post_titre_article,$post_contenu_article)
+{
+    ajouterArticle($post_titre_article,$post_contenu_article);
+    header('Location: index.php');
+}
