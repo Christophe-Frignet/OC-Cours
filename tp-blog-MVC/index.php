@@ -13,9 +13,20 @@ if(isset($_GET['action'])){
         afficherAjoutArticle();
     }
     elseif ($_GET['action'] == 'ajouterArticle' AND isset($_POST['titre']) AND isset($_POST['contenu'])) {
+
         $post_titre_article = $_POST['titre'];
         $post_contenu_article = $_POST['contenu'];
+
         ajouterArticleController($post_titre_article,$post_contenu_article);
+    }
+    elseif ($_GET['action'] == 'ajouterCommentaire' AND isset($_POST['id_article']) AND isset($_POST['date_commentaire']) AND isset($_POST['auteur']) AND isset($_POST['commentaire'])) {
+
+        $id_article = $_POST['id_article'];
+        $date_commentaire = $_POST['date_commentaire'];
+        $auteur = $_POST['auteur'];
+        $commentaire = $_POST['commentaire'];
+
+        ajouterCommentaireController($id_article,$date_commentaire,$auteur,$commentaire);
     }
 }
 else{

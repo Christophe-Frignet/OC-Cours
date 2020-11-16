@@ -1,6 +1,6 @@
-<section class="bloc center padding">
+<section class="bloc center padding"> 
     <h2>Ajouter un commentaire</h2>
-    <form  method="POST" action="ajouter-commentaire-traitement.php">
+    <form  method="POST" action="index.php?action=ajouterCommentaire">
 
         <input type="hidden" name="id_article" value="<?=$id_article?>">
 

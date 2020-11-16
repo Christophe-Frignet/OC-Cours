@@ -48,3 +48,9 @@ function ajouterArticleController($post_titre_article,$post_contenu_article)
     ajouterArticle($post_titre_article,$post_contenu_article);
     header('Location: index.php');
 }
+
+function ajouterCommentaireController($id_article,$date_commentaire,$auteur,$commentaire)
+{
+    ajouterCommentaire($id_article,$date_commentaire,$auteur,$commentaire);
+    header('Location: index.php?action=afficherArticle&id_article=' . $id_article .'');
+}
