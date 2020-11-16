@@ -1,5 +1,5 @@
 <?php
-require('modele.php');
+require('model/modele.php');
 
 function afficherAccueil()
 {
@@ -15,7 +15,7 @@ function afficherAccueil()
     $nbr_pages = nombrePages($articles_par_page);
     $liste_articles = recupererListeArticles($num_page,$articles_par_page);
     
-    require('afficher-accueil.php'); 
+    require('view/afficher-accueil.php'); 
 }
 
 function afficherArticle()
@@ -26,11 +26,11 @@ function afficherArticle()
 
     if($article != false)
     {
-        require('afficher-article.php');
+        require('view/afficher-article.php');
 
         $commentaires = recupererCommentaires($id_article);
-        require('afficher-commentaires.php');
-        require('afficher-ajout-commentaire.php');
+        require('view/afficher-commentaires.php');
+        require('view/afficher-ajout-commentaire.php');
     }
     else
     {

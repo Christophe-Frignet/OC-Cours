@@ -1,4 +1,4 @@
-<section class="bloc center padding">
+<section class="">
     <p style="text-align:center;">
         Droits accès :<br>
         <?php
