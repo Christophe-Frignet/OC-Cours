@@ -12,7 +12,7 @@
             <p>
                 <?=$article['contenu'];?><br /><br />
 
-                <a href="article.php?id_article=<?=$article['id'];?>">Afficher l'article et ses commentaires >></a>
+                <a href="index.php?action=afficherArticle&id_article=<?=$article['id'];?>">Afficher l'article et ses commentaires >></a>
 
                 <?php
                 //Si l'accès admin est autorisé on affiche les options de l'administrateur
