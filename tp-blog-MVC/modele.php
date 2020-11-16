@@ -6,7 +6,7 @@ function recupererListeArticles($num_page,$articles_par_page)
     $num_article = ($num_page-1)*$articles_par_page;
 
     //on se connecte à la bdd
-    require('connecter-bdd.php');
+    $bdd = connecterBdd();
 
     //on prépare la requête de récupération des articles
     $sql = 'SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y %H:%i:%s\') AS date_creation_fr FROM articles ORDER BY date_creation DESC LIMIT ' . $num_article . ',' . $articles_par_page . '';
@@ -26,7 +26,8 @@ function nombrePages($art_p)
     $articles_par_page = $art_p;
     //on prépare la requête de récupération de tous les articles
 
-    require('connecter-bdd.php');
+    //on se connecte à la bdd
+    $bdd = connecterBdd();
 
     $sql = 'SELECT COUNT(*) AS nb_articles FROM articles';
     $req = $bdd->prepare($sql);
@@ -78,7 +79,7 @@ function idArticle($id_article)
 function recupererUnArticle($id_article)
 {
     //on se connecte à la bdd
-    include('connecter-bdd.php');
+    $bdd = connecterBdd();
 
     //on prépare la requête de récupération de l'article demandé
     $sql ='SELECT id, titre, contenu, DATE_FORMAT(date_creation,  \'%d/%m/%Y\') AS date_creation_fr FROM articles WHERE id = ?';
@@ -99,7 +100,7 @@ function recupererUnArticle($id_article)
 function recupererCommentaires($id_article)
 {
     //on se connecte à la bdd
-    include('connecter-bdd.php');
+    $bdd = connecterBdd();
 
     //On prépare la requête pour récupérer les commentaires de l'article
     $sql = 'SELECT id_article, auteur, commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y %H:%i:%s\') AS date_commentaire_fr FROM commentaires WHERE id_article = ?';
@@ -109,4 +110,21 @@ function recupererCommentaires($id_article)
     $commentaires->execute(array($id_article));
 
     return $commentaires;
+}
+
+function connecterBdd()
+{
+    $dsn = 'mysql:host=localhost;dbname=tp_blog';
+    $username = 'root';
+    $password = '';
+
+    try
+    {
+        $bdd = new PDO($dsn, $username, $password,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        return $bdd;
+    }
+    catch(Exception $e)
+    {
+        die('Erreur : '.$e->getMessage());
+    }
 }
