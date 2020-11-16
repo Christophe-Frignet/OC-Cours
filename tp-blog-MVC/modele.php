@@ -20,12 +20,8 @@ function recupererListeArticles($num_page,$articles_par_page)
     return $liste_articles;
 }
 
-function nombrePages($art_p)
+function nombrePages($articles_par_page)
 {
-
-    $articles_par_page = $art_p;
-    //on prépare la requête de récupération de tous les articles
-
     //on se connecte à la bdd
     $bdd = connecterBdd();
 
