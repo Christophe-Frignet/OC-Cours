@@ -60,11 +60,7 @@ if(isset($_GET['id_article']))
             <input type="text" id="titre" name="titre" value="<?=$titre_article;?>"><br><br>
 
             <label for="contenu">Contenu de l'article</label><br>
-            <textarea id="contenu" name="contenu" rows="10" cols="100">
-
-                <?=$contenu_article;?>
-                
-            </textarea><br><br>
+            <textarea id="contenu" name="contenu" rows="10" cols="100"><?=$contenu_article;?></textarea><br><br>
 
             <input type="hidden" name="id" value="<?=$id_article;?>">
 

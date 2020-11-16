@@ -30,7 +30,8 @@ if(isset($_POST['titre']) AND isset($_POST['contenu']) AND isset($_POST['id']))
     $req->closeCursor(); 
 
     //on affiche la page de l'article modifié
-    header('Location: article.php?id_billet= ' . $id_article . '');
+    header('Location: article.php?id_article= ' . $id_article . '');
+
 }
 //sinon sans les variables récupérées dans le $_POST[]
 else

@@ -31,7 +31,7 @@ if(isset($_POST['id_article']) AND isset($_POST['auteur']) AND isset($_POST['com
 	$req->closeCursor(); 
 
 	//on retourne sur la page de l'article
-	header('Location: article.php?id_billet=' . $id_article);
+	header('Location: article.php?id_article=' . $id_article);
 }
 else
 {
