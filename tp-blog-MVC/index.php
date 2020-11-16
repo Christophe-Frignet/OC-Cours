@@ -1,17 +1,15 @@
 <?php
-session_start(); 
-require('modele.php');
+session_start();
+require('controller.php');
 
-if(isset($_GET['num_page']))
-{
-    $num_page = numeroPage($_GET['num_page']);
+if(isset($_GET['action'])){
+    if($_GET['action'] == 'afficherAccueil'){
+        afficherAccueil();
+    }
+    elseif ($_GET['action'] == 'afficherArticle' AND isset($_GET['id_article'])) {
+        afficherArticle();//fonctionne si un id_article est passé en GET
+    }
 }
-else
-{
-    $num_page = 1;
+else{
+    afficherAccueil();
 }
-$articles_par_page = 2;
-$nbr_pages = nombrePages($articles_par_page);
-$liste_articles = recupererListeArticles($num_page,$articles_par_page);
-
-require('afficher-accueil.php'); 
