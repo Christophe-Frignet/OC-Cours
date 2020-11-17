@@ -51,6 +51,10 @@ if(isset($_GET['action'])){
     elseif ($_GET['action'] == 'deconnecterAdmin') {
         deconnecterAdminController();
     }
+    elseif ($_GET['action'] == 'afficherModificationArticle' AND isset($_GET['id_article'])) {
+        $id_article = $_GET['id_article'];
+        afficherModificationArticle($id_article);
+    }
 
 }
 else{

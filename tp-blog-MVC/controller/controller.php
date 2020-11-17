@@ -90,3 +90,13 @@ function deconnecterAdminController()
     $page_deconnexion = deconnecterAdmin();
     header('Location: ' . $page_deconnexion . '');
 }
+
+function afficherModificationArticle($id_article)
+{
+    $article = recupererUnArticle($id_article);
+
+    $titre_article = $article['titre'];
+    $contenu_article = $article['contenu'];
+
+    require('view/afficher-modification-article.php');
+}

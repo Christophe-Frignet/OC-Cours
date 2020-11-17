@@ -74,6 +74,12 @@ function idArticle($id_article)
 
 function recupererUnArticle($id_article)
 {
+    //on réduit la faille XSS sur l'id de l'article
+    $id_article = htmlspecialchars($_GET['id_article']);
+
+    //on s'assure du bon typage de l'id
+    $id_article = (int)$id_article;
+    
     //on se connecte à la bdd
     $bdd = connecterBdd();
 

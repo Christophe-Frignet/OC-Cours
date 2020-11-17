@@ -20,7 +20,7 @@
                     {
                     ?>
                     <ul>
-                        <li><a href="modifier-article.php?id_article=<?=$article['id'];?>">Modifier l'article</a></li>
+                        <li><a href="index.php?action=afficherModificationArticle&id_article=<?=$article['id'];?>">Modifier l'article</a></li>
                         <li><a href="supprimer-article.php?id=<?=$article['id'];?>">Supprimer l'article</a></li>
                     </ul>    
                     <?php
