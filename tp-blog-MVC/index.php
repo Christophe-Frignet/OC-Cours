@@ -64,6 +64,12 @@ if(isset($_GET['action'])){
 
         modifierArticleController($id_article, $titre_article, $contenu_article);
     }
+    elseif ($_GET['action'] == 'supprimerArticle' AND isset($_GET['id'])) {
+
+        $id_article = $_GET['id'];
+        supprimerArticleController($id_article);
+    }
+    
 }
 else{
     afficherAccueil();

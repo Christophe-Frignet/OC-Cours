@@ -277,6 +277,30 @@ function modifierArticle($id_article, $titre_article, $contenu_article)
     $req->closeCursor(); 
 }
 
+function supprimerArticle($id_article)
+{
+    //on réduit la faille XSS de l'id récupéré
+    $id_article = htmlspecialchars($id_article);
+
+    //on s'assure du bon typage de l'id
+    $id_article = (int)$id_article;
+
+    //on se connecte à la base de données
+    $bdd = connecterBdd();
+
+    //on prépare la requête de suppresion de l'article
+    $sql ='DELETE FROM articles WHERE id = :id';
+    $req = $bdd->prepare($sql);
+
+    //on exécute la requête
+    $req->execute(array(
+        'id' => $id_article
+        ));
+
+    //on libère le curseur pour la prochaine requête
+    $req->closeCursor(); 
+}
+
 function connecterBdd()
 {
     $dsn = 'mysql:host=localhost;dbname=tp_blog';
