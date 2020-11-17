@@ -223,7 +223,7 @@ function creerAdmin($id_admin,$mdp_admin)
     $mdp_admin_crypte = password_hash($mdp_admin, PASSWORD_DEFAULT);
 
     //On se connecte à la BDD
-    include('connecter-bdd.php');
+    $bdd = connecterBdd();
 
     //On prépare la requête d'enregistrement des accès
     $sql = 'INSERT INTO acces_admin (id_admin, mdp_admin) VALUES (:id, :pwd);';
