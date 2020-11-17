@@ -16,7 +16,7 @@
 
 <section class="bloc center padding">
     <h2>Connexion administrateur</h2>
-        <form  method="POST" action="connecter-admin-traitement.php">
+        <form  method="POST" action="index.php?action=connecterAdmin">
                     
             <label for="id_admin">Identifiant</label><br>
             <input type="text" id="id_admin" name="id_admin"><br>

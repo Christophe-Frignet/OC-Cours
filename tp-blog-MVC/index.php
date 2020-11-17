@@ -28,6 +28,16 @@ if(isset($_GET['action'])){
 
         ajouterCommentaireController($id_article,$date_commentaire,$auteur,$commentaire);
     }
+    elseif ($_GET['action'] == 'afficherConnexionAdmin') {
+        afficherConnexionAdmin();
+    }
+    elseif ($_GET['action'] == 'connecterAdmin' AND isset($_POST['id_admin']) AND isset($_POST['mdp_formulaire'])) {
+
+        $id_admin = $_POST['id_admin'];
+        $mdp_formulaire = $_POST['mdp_formulaire'];
+
+        connecterAdminController($id_admin,$mdp_formulaire);
+    }
 }
 else{
     afficherAccueil();

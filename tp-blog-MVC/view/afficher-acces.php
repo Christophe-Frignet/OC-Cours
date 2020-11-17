@@ -14,7 +14,7 @@
         //Sinon, on propose la connexion
         } else {
             ?>
-            <strong>UTILISATEUR</strong><br><a href="connecter-admin.php">>> Connecter Admin <<</a>
+            <strong>UTILISATEUR</strong><br><a href="index.php?action=afficherConnexionAdmin">>> Connecter Admin <<</a>
             <?php
             
         $admin_access = false;

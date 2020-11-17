@@ -54,3 +54,23 @@ function ajouterCommentaireController($id_article,$date_commentaire,$auteur,$com
     ajouterCommentaire($id_article,$date_commentaire,$auteur,$commentaire);
     header('Location: index.php?action=afficherArticle&id_article=' . $id_article .'');
 }
+
+function afficherConnexionAdmin()
+{
+    require('view/afficher-connexion-admin.php');
+}
+
+function connecterAdminController($id_admin,$mdp_formulaire)
+{
+    connecterAdmin($id_admin,$mdp_formulaire);
+
+    if($_SESSION['access'] == 'admin'){
+
+        header('Location: index.php');
+    }
+    else{
+
+        header('Location: index.php?action=afficherConnexionAdmin');
+    }
+    
+}
