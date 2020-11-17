@@ -12,11 +12,11 @@
 <body>
 
 <p style="text-align:center;"><a href="index.php">Liste articles</a></p>
-<p style="text-align:center;"><a href="connecter-admin.php">Connexion administrateur</a></p>
+<p style="text-align:center;"><a href="index.php?action=afficherConnexionAdmin">Connexion administrateur</a></p>
 
 <section class="bloc center padding">
     <h2>Création accès administrateur</h2>
-        <form  method="POST" action="creer-acces-admin-traitement.php">
+        <form  method="POST" action="index.php?action=creerAdmin">
                     
             <label for="id_admin">Identifiant</label><br>
             <input type="text" id="id_admin" name="id_admin"><br>

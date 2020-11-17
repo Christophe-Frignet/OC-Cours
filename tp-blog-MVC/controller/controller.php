@@ -72,5 +72,21 @@ function connecterAdminController($id_admin,$mdp_formulaire)
 
         header('Location: index.php?action=afficherConnexionAdmin');
     }
-    
+}
+
+function afficherCreationAdmin()
+{
+    require('view/afficher-creation-admin.php');
+}
+
+function creerAdminController($id_admin,$mdp_admin)
+{
+    creerAdmin($id_admin,$mdp_admin);
+    header('Location: index.php?action=afficherConnexionAdmin');
+}
+
+function deconnecterAdminController()
+{
+    $page_deconnexion = deconnecterAdmin();
+    header('Location: ' . $page_deconnexion . '');
 }

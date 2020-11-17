@@ -38,6 +38,20 @@ if(isset($_GET['action'])){
 
         connecterAdminController($id_admin,$mdp_formulaire);
     }
+    elseif ($_GET['action'] == 'afficherCreationAdmin') {
+        afficherCreationAdmin();
+    }
+    elseif ($_GET['action'] == 'creerAdmin' AND isset($_POST['id_admin']) AND isset($_POST['mdp_admin'])) {
+
+        $id_admin = $_POST['id_admin'];
+        $mdp_admin = $_POST['mdp_admin'];
+
+        creerAdminController($id_admin,$mdp_admin);
+    }
+    elseif ($_GET['action'] == 'deconnecterAdmin') {
+        deconnecterAdminController();
+    }
+
 }
 else{
     afficherAccueil();

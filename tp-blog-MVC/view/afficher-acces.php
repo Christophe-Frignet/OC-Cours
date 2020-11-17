@@ -6,7 +6,7 @@
         //Si l'accès admin est bon, on propose la déconnexion
         if (isset($_SESSION['access']) AND $_SESSION['access'] == 'admin') {
             ?>
-            <strong>ADMINISTRATEUR</strong><br><a href="deconnecter-admin.php">>> se déconnecter <<</a>
+            <strong>ADMINISTRATEUR</strong><br><a href="index.php?action=deconnecterAdmin">>> se déconnecter <<</a>
             <?php
 
         $admin_access = true;
