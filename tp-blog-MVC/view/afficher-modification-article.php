@@ -17,15 +17,15 @@
     <h1>Modifier article</h1>
 
     <section class="bloc center padding">
-        <form action="modifier-article-traitement.php" method="post">
+        <form action="index.php?action=modifierArticle" method="post">
+
+            <input type="hidden" name="id" value="<?=$id_article;?>">
 
             <label for="titre">Titre de l'article</label><br>
             <input type="text" id="titre" name="titre" value="<?=$titre_article;?>"><br><br>
 
             <label for="contenu">Contenu de l'article</label><br>
             <textarea id="contenu" name="contenu" rows="10" cols="100"><?=$contenu_article;?></textarea><br><br>
-
-            <input type="hidden" name="id" value="<?=$id_article;?>">
 
             <input type="submit" value="Valider modifications">
 

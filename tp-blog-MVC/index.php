@@ -55,7 +55,15 @@ if(isset($_GET['action'])){
         $id_article = $_GET['id_article'];
         afficherModificationArticle($id_article);
     }
+    
+    elseif ($_GET['action'] == 'modifierArticle' AND isset($_POST['id']) AND isset($_POST['titre']) AND isset($_POST['contenu'])) {
 
+        $id_article = $_POST['id'];
+        $titre_article = $_POST['titre'];
+        $contenu_article = $_POST['contenu'];
+
+        modifierArticleController($id_article, $titre_article, $contenu_article);
+    }
 }
 else{
     afficherAccueil();

@@ -247,6 +247,36 @@ function deconnecterAdmin()
     return $page_deconnexion;
 }
 
+function modifierArticle($id_article, $titre_article, $contenu_article)
+{
+    //on réduit la faille XSS sur la récupération des données
+    $id_article = htmlspecialchars($_POST['id']);
+    $titre_article = htmlspecialchars($_POST['titre']);
+    $contenu_article = htmlspecialchars($_POST['contenu']);
+
+    //on s'assure du bon typage des données
+    $id_article = (int)$id_article;
+    $titre_article = (string)$titre_article;
+    $contenu_article = (string)$contenu_article;
+
+    //on se connecte à la base de données
+    $bdd = connecterBdd();
+
+    //on prépare la requête de mise à jour des données dans la table
+    $sql = 'UPDATE articles SET titre = :titre , contenu = :contenu WHERE id = :id'; 
+    $req = $bdd->prepare($sql);
+
+    //on exécute la requête
+    $req->execute(array(
+        'titre' => $titre_article,
+        'contenu' => $contenu_article,
+        'id' => $id_article
+        ));
+
+    //on libère le curseur pour la prochaine requête
+    $req->closeCursor(); 
+}
+
 function connecterBdd()
 {
     $dsn = 'mysql:host=localhost;dbname=tp_blog';

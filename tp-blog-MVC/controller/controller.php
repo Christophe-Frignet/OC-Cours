@@ -100,3 +100,9 @@ function afficherModificationArticle($id_article)
 
     require('view/afficher-modification-article.php');
 }
+
+function modifierArticleController($id_article, $titre_article, $contenu_article)
+{
+    modifierArticle($id_article, $titre_article, $contenu_article);
+    header('Location: index.php?action=afficherArticle&id_article=' . $id_article . '');
+}
