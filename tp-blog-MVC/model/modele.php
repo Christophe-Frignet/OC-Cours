@@ -149,7 +149,7 @@ function ajouterCommentaire($id_article,$date_commentaire,$auteur,$commentaire)
 	$date_commentaire = (string)$date_commentaire;
 
 	//On se connecte à la bdd
-	include('connecter-bdd.php');
+    $bdd = connecterBdd();
 
 	//On ajoute le nouveau commentaire dans la BDD
 	$req = $bdd->prepare('INSERT INTO commentaires (id_article, auteur, commentaire, date_commentaire) VALUES ( :id_article, :auteur, :commentaire, :date_commentaire)');
@@ -163,23 +163,6 @@ function ajouterCommentaire($id_article,$date_commentaire,$auteur,$commentaire)
 
 	//on libère le curseur pour la prochaine requête
 	$req->closeCursor(); 
-}
-
-function connecterBdd()
-{
-    $dsn = 'mysql:host=localhost;dbname=tp_blog';
-    $username = 'root';
-    $password = '';
-
-    try
-    {
-        $bdd = new PDO($dsn, $username, $password,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-        return $bdd;
-    }
-    catch(Exception $e)
-    {
-        die('Erreur : '.$e->getMessage());
-    }
 }
 
 function connecterAdmin($id_admin,$mdp_formulaire)
@@ -218,5 +201,21 @@ function connecterAdmin($id_admin,$mdp_formulaire)
     {
         header('Location: index.php?action=afficherConnexionAdmin');
     }
-    
+}
+
+function connecterBdd()
+{
+    $dsn = 'mysql:host=localhost;dbname=tp_blog';
+    $username = 'root';
+    $password = '';
+
+    try
+    {
+        $bdd = new PDO($dsn, $username, $password,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        return $bdd;
+    }
+    catch(Exception $e)
+    {
+        die('Erreur : '.$e->getMessage());
+    }
 }
