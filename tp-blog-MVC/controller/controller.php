@@ -1,25 +1,6 @@
 <?php
 require('model/modele.php');
 
-function afficherArticle()
-{
-    $id_article = idArticle($_GET['id_article']);
-
-    $article = recupererUnArticle($id_article);
-
-    if($article != false)
-    {
-        require('view/afficher-article.php');
-
-        $commentaires = recupererCommentaires($id_article);
-        require('view/afficher-commentaires.php');
-        require('view/afficher-ajout-commentaire.php');
-    }
-    else
-    {
-        header('Location: index.php');
-    } 
-}
 
 function afficherAjoutArticle()
 {
