@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('controller/controller.php');
+require('controller/frontend-controller.php');
 
 if(isset($_GET['action'])){
     if($_GET['action'] == 'afficherAccueil'){
