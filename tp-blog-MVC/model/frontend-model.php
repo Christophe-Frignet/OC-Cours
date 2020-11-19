@@ -130,10 +130,12 @@ function ajouterCommentaire($id_article,$date_commentaire,$auteur,$commentaire)
 	//On se connecte à la bdd
     $bdd = connecterBdd();
 
-	//On ajoute le nouveau commentaire dans la BDD
-	$req = $bdd->prepare('INSERT INTO commentaires (id_article, auteur, commentaire, date_commentaire) VALUES ( :id_article, :auteur, :commentaire, :date_commentaire)');
+    //On ajoute le nouveau commentaire dans la BDD
+    $sql = 'INSERT INTO commentaires (id_article, auteur, commentaire, date_commentaire) VALUES ( :id_article, :auteur, :commentaire, :date_commentaire)';
 
-	$req->execute(array(
+	$req = $bdd->prepare($sql);
+
+	$commentaire_ajout = $req->execute(array(
 		'id_article' => $id_article,
 		'auteur' => $auteur,
 		'commentaire' => $commentaire,
@@ -141,7 +143,8 @@ function ajouterCommentaire($id_article,$date_commentaire,$auteur,$commentaire)
 		));
 
 	//on libère le curseur pour la prochaine requête
-	$req->closeCursor(); 
+    $req->closeCursor();
+    return $commentaire_ajout;
 }
 
 

@@ -14,7 +14,9 @@ try {
         elseif ($_GET['action'] == 'afficherArticle') {
 
             if(isset($_GET['id_article'])) {
-                afficherArticle();
+
+                $id_article = $_GET['id_article'];
+                afficherArticle($id_article);
             }
             else {
                 throw new Exception('Aucun id article envoyé');
