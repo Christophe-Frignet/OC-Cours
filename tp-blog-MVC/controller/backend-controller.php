@@ -1,12 +1,6 @@
 <?php
-<<<<<<< HEAD
 require_once('model/BackendArticleManager.php');
 require_once('model/BackendAdminManager.php');
-=======
-require('model/BackendArticleManager.php');
-require('model/BackendAdminManager.php');
->>>>>>> main
-
 
 function afficherAjoutArticle()
 {

@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 require_once('model/FrontEnd.php');
-=======
-require('model/FrontEnd.php');
->>>>>>> main
 
 function afficherAccueil()
 {
