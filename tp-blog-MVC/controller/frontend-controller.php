@@ -1,5 +1,5 @@
 <?php
-require_once('model/FrontEnd.php');
+require_once('model/FrontEndManager.php');
 
 function afficherAccueil()
 {
