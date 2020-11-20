@@ -1,5 +1,7 @@
 <?php
-class ArticleBackendManager {
+require_once('ModelManager.php');
+
+class ArticleBackendManager extends ModelManager {
 
     public function ajouterArticle($post_titre_article, $post_contenu_article)
     {
@@ -83,22 +85,5 @@ class ArticleBackendManager {
         $req->closeCursor();
 
         return $req;
-    }
-
-    private function connecterBdd()
-    {
-        $dsn = 'mysql:host=localhost;dbname=tp_blog';
-        $username = 'root';
-        $password = '';
-    
-        try
-        {
-            $bdd = new PDO($dsn, $username, $password,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-            return $bdd;
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
     }
 }
