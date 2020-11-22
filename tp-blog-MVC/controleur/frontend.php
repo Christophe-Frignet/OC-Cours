@@ -2,7 +2,7 @@
 
 use Modele\Frontend\FrontEnd;
 
-require_once('modele/frontend/FrontEndManager.php');
+require_once('modele/frontend/ArticlesCommentaires.php');
 
 function afficherAccueil()
 {

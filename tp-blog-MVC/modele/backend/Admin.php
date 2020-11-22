@@ -4,7 +4,6 @@ namespace Modele\Backend;
 
 use Modele\ModeleGeneral;
 
-
 require_once('modele/ModeleGeneral.php');
 
 class Admin extends ModeleGeneral {
