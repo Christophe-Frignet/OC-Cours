@@ -1,4 +1,10 @@
 <?php
+
+use \Tpblog\Model\{
+    ArticleBackendManager,
+    AdminBackendManager
+};
+
 require_once('model/BackendArticleManager.php');
 require_once('model/BackendAdminManager.php');
 

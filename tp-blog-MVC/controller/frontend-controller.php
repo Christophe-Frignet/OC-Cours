@@ -1,4 +1,7 @@
 <?php
+
+use \Tpblog\Model\FrontEnd;
+
 require_once('model/FrontEndManager.php');
 
 function afficherAccueil()

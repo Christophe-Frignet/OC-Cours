@@ -1,4 +1,9 @@
 <?php
+
+namespace Tpblog\Model;
+
+use \PDO;
+
 class ModelManager {
 
     protected function connecterBdd()

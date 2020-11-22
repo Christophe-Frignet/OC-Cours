@@ -1,4 +1,7 @@
 <?php
+
+namespace Tpblog\Model;
+
 require_once('ModelManager.php');
 
 class FrontEnd extends ModelManager {
