@@ -1,0 +1,16 @@
+{
+    "name": "chrisfrignet/tp-blog-mvc",
+    "description": "Tp pour l'apprentissage de la structure MVC en PHP",
+    "authors": [
+        {
+            "name": "Christophe Frignet",
+            "email": "chrisfrignet@gmail.com"
+        }
+    ],
+    "autoload":{
+        "psr-4":{
+            "Model\\":"modele/"
+        }
+    },
+    "require": {}
+}
