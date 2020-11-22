@@ -1,12 +1,11 @@
 <?php
 
+require_once('vendor/autoload.php');
+
 use Modele\Backend\{
     Article,
     Admin
 };
-
-require_once('modele/backend/Article.php');
-require_once('modele/backend/Admin.php');
 
 function afficherAjoutArticle()
 {

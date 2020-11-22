@@ -1,8 +1,7 @@
 <?php
+require_once('vendor/autoload.php');
 
 use Modele\Frontend\FrontEnd;
-
-require_once('modele/frontend/ArticlesCommentaires.php');
 
 function afficherAccueil()
 {

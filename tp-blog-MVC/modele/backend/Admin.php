@@ -1,10 +1,9 @@
 <?php
-
 namespace Modele\Backend; 
 
-use Modele\ModeleGeneral;
+require_once('vendor/autoload.php');
 
-require_once('modele/ModeleGeneral.php');
+use Modele\ModeleGeneral;
 
 class Admin extends ModeleGeneral {
 
