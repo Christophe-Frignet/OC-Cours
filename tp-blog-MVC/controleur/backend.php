@@ -1,12 +1,12 @@
 <?php
 
-use \Tpblog\Model\{
-    ArticleBackendManager,
-    AdminBackendManager
+use \Tpblog\Modele\Backend\{
+    Article,
+    Admin
 };
 
-require_once('model/BackendArticleManager.php');
-require_once('model/BackendAdminManager.php');
+require_once('modele/backend/Article.php');
+require_once('modele/backend/Admin.php');
 
 function afficherAjoutArticle()
 {
@@ -15,7 +15,7 @@ function afficherAjoutArticle()
 
 function ajouterArticleController($post_titre_article,$post_contenu_article)
 {
-    $articleBackendManager = new ArticleBackendManager();
+    $articleBackendManager = new Article();
     $req = $articleBackendManager->ajouterArticle($post_titre_article, $post_contenu_article);
     
     header('Location: index.php');
@@ -23,7 +23,7 @@ function ajouterArticleController($post_titre_article,$post_contenu_article)
 
 function modifierArticleController($id_article, $titre_article, $contenu_article)
 {
-    $articleBackendManager = new ArticleBackendManager();
+    $articleBackendManager = new Article();
     $req = $articleBackendManager->modifierArticle($id_article, $titre_article, $contenu_article);
     
     header('Location: index.php?action=afficherArticle&id_article=' . $id_article . '');
@@ -31,7 +31,7 @@ function modifierArticleController($id_article, $titre_article, $contenu_article
 
 function supprimerArticleController($id_article)
 {
-    $articleBackendManager = new ArticleBackendManager();
+    $articleBackendManager = new Article();
     $req = $articleBackendManager->supprimerArticle($id_article);
     
     header('Location: index.php');
@@ -44,7 +44,7 @@ function afficherConnexionAdmin()
 
 function connecterAdminController($id_admin,$mdp_formulaire)
 {
-    $adminBackendManager = new AdminBackEndManager();
+    $adminBackendManager = new Admin();
     $adminBackendManager->connecterAdmin($id_admin,$mdp_formulaire);
     
     if($_SESSION['access'] == 'admin'){
@@ -64,7 +64,7 @@ function afficherCreationAdmin()
 
 function creerAdminController($id_admin,$mdp_admin)
 {
-    $adminBackendManager = new AdminBackendManager();
+    $adminBackendManager = new Admin();
     $req = $adminBackendManager->creerAdmin($id_admin,$mdp_admin);
     
     header('Location: index.php?action=afficherConnexionAdmin');
@@ -72,7 +72,7 @@ function creerAdminController($id_admin,$mdp_admin)
 
 function deconnecterAdminController()
 {
-    $adminBackendManager = new AdminBackendManager();
+    $adminBackendManager = new Admin();
     $page_deconnexion = $adminBackendManager->deconnecterAdmin();
 
     header('Location: ' . $page_deconnexion . '');

@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require('controller/frontend-controller.php');
-require('controller/backend-controller.php');
+require('controleur/frontend.php');
+require('controleur/backend.php');
 
 try {
     if(isset($_GET['action'])){

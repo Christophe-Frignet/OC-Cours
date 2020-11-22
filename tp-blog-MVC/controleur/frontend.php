@@ -1,8 +1,8 @@
 <?php
 
-use \Tpblog\Model\FrontEnd;
+use \Tpblog\Modele\Frontend\FrontEnd;
 
-require_once('model/FrontEndManager.php');
+require_once('modele/frontend/FrontEndManager.php');
 
 function afficherAccueil()
 {

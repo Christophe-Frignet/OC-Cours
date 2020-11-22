@@ -1,10 +1,10 @@
 <?php
 
-namespace Tpblog\Model;
+namespace Tpblog\Modele;
 
 use \PDO;
 
-class ModelManager {
+class ModeleGeneral {
 
     protected function connecterBdd()
     {

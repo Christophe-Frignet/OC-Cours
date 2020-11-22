@@ -1,10 +1,12 @@
 <?php
 
-namespace Tpblog\Model;
+namespace Tpblog\Modele\Frontend;
 
-require_once('ModelManager.php');
+use \Tpblog\Modele\ModeleGeneral;
 
-class FrontEnd extends ModelManager {
+require_once('modele/ModeleGeneral.php');
+
+class FrontEnd extends ModeleGeneral {
 
     public function numeroPage($get)
     {

@@ -1,10 +1,13 @@
 <?php
 
-namespace Tpblog\Model;
+namespace Tpblog\Modele\Backend; 
 
-require_once('ModelManager.php');
+use \Tpblog\Modele\ModeleGeneral;
 
-class AdminBackendManager extends ModelManager {
+
+require_once('modele/ModeleGeneral.php');
+
+class Admin extends ModeleGeneral {
 
     function connecterAdmin($id_admin,$mdp_formulaire)
     {

@@ -1,10 +1,12 @@
 <?php
 
-namespace Tpblog\Model;
+namespace Tpblog\Modele\Backend;
 
-require_once('ModelManager.php');
+use \Tpblog\Modele\ModeleGeneral;
 
-class ArticleBackendManager extends ModelManager {
+require_once('modele/ModeleGeneral.php');
+
+class Article extends ModeleGeneral {
 
     public function ajouterArticle($post_titre_article, $post_contenu_article)
     {
