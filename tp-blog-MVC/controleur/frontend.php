@@ -1,18 +1,21 @@
 <?php
 require_once('vendor/autoload.php');
 
-use Modele\Frontend\FrontEnd;
+use Modele\Frontend\{
+    Articles,
+    Commentaires
+};
 
 function afficherAccueil()
 {
     if(isset($_GET['num_page']))
     {
-        $frontEnd = new FrontEnd();
+        $frontEnd = new Articles();
         $num_page = $frontEnd->numeroPage($_GET['num_page']);
     }
     else
     {
-        $frontEnd = new FrontEnd();
+        $frontEnd = new Articles();
         $num_page = 1;
     }
 
@@ -31,14 +34,15 @@ function afficherAccueil()
 
 function afficherArticle($id_article)
 {
-    $frontEnd = new FrontEnd();
-    $article = $frontEnd->recupererUnArticle($id_article);
+    $article = new Articles();
+    $article = $article->recupererUnArticle($id_article);
 
     if($article != false)
     {
         require('view/afficher-article.php');
 
-        $commentaires = $frontEnd->recupererCommentaires($id_article);
+        $commentaires = new Commentaires();
+        $commentaires = $commentaires->recupererCommentaires($id_article);
 
         require('view/afficher-commentaires.php');
         require('view/afficher-ajout-commentaire.php');
@@ -51,7 +55,7 @@ function afficherArticle($id_article)
 
 function afficherModificationArticle($id_article)
 {
-    $frontEnd = new FrontEnd();
+    $frontEnd = new Articles();
     $article = $frontEnd->recupererUnArticle($id_article);
 
     $titre_article = $article['titre'];
@@ -63,8 +67,8 @@ function afficherModificationArticle($id_article)
 
 function ajouterCommentaireController($id_article,$date_commentaire,$auteur,$commentaire)
 {
-    $frontEnd = new FrontEnd();
-    $commentaire_ajout = $frontEnd->ajouterCommentaire($id_article,$date_commentaire,$auteur,$commentaire);
+    $commentaire_ajout = new Commentaires();
+    $commentaire_ajout = $commentaire_ajout->ajouterCommentaire($id_article,$date_commentaire,$auteur,$commentaire);
 
     if ($commentaire_ajout === false) {
         throw new Exception('L\'ajout de commentaire a échoué');
