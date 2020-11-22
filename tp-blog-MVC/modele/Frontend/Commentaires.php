@@ -13,7 +13,7 @@ class Commentaires extends ModeleGeneral {
         $bdd = $this->connecterBdd();
 
         //On prépare la requête pour récupérer les commentaires de l'article
-        $sql = 'SELECT id_article, auteur, commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y %H:%i:%s\') AS date_commentaire_fr FROM commentaires WHERE id_article = ?';
+        $sql = 'SELECT id, id_article, auteur, commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y %H:%i:%s\') AS date_commentaire_fr FROM commentaires WHERE id_article = ?';
         $commentaires = $bdd->prepare($sql);
 
         //on exécute la requête
@@ -54,5 +54,31 @@ class Commentaires extends ModeleGeneral {
         //on libère le curseur pour la prochaine requête
         $req->closeCursor();
         return $commentaire_ajout;
+    }
+
+    public function supprimerCommentaire($id_commentaire)
+    {
+        //on réduit la faille XSS de l'id récupéré
+        $id_commentaire = htmlspecialchars($id_commentaire);
+    
+        //on s'assure du bon typage de l'id
+        $id_commentaire = (int)$id_commentaire;
+    
+        //on se connecte à la base de données
+        $bdd = $this->connecterBdd();
+    
+        //on prépare la requête de suppresion de l'article
+        $sql ='DELETE FROM commentaires WHERE id = :id';
+        $req = $bdd->prepare($sql);
+    
+        //on exécute la requête
+        $req->execute(array(
+            'id' => $id_commentaire
+            ));
+    
+        //on libère le curseur pour la prochaine requête
+        $req->closeCursor();
+
+        return $req;
     }
 }

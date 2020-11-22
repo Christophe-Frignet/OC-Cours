@@ -148,6 +148,19 @@ try {
                 throw new Exception('Il manque l\'id pour supprimer l\'article');
             }
         }
+        elseif ($_GET['action'] == 'supprimerCommentaire') {
+
+            if (isset($_GET['id_commentaire']) AND isset($_GET['id_article'])) {
+
+                $id_commentaire = $_GET['id_commentaire'];
+                $id_article = $_GET['id_article'];
+                supprimerCommentaireControleur($id_article,$id_commentaire);
+            }
+            
+            else {
+                throw new Exception('Il manque l\'id pour supprimer le commentaire');
+            }
+        }
     }
 
     else {

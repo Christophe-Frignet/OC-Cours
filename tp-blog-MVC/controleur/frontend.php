@@ -77,6 +77,19 @@ function ajouterCommentaireController($id_article,$date_commentaire,$auteur,$com
     }
 }
 
+function supprimerCommentaireControleur($id_article,$id_commentaire)
+{
+    $commentaire_suppression = new Commentaires();
+    $commentaire_suppression = $commentaire_suppression->supprimerCommentaire($id_commentaire);
+
+    if ($commentaire_suppression === false) {
+        throw new Exception('La suppression de commentaire a échoué');
+    } else {
+        header('Location: index.php?action=afficherArticle&id_article=' . $id_article .'');
+    }
+    
+}
+
 function connecterBdd()
 {
     $dsn = 'mysql:host=localhost;dbname=tp_blog';

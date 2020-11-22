@@ -9,7 +9,9 @@
                     <?=htmlspecialchars($commentaire['auteur']);?>
                 </b>
                 - Le <?=$commentaire['date_commentaire_fr'];?> 
-                <br />
+                <a href="index.php?action=supprimerCommentaire&id_commentaire=<?=$commentaire['id'];?>&id_article=<?=$commentaire['id_article'];?>">supprimer</a>
+            </p>
+            <p>
                 <i>
                     <?=nl2br(htmlspecialchars($commentaire['commentaire']));?>
                 </i>
