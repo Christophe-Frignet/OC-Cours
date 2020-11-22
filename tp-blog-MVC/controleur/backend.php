@@ -1,6 +1,6 @@
 <?php
 
-use \Tpblog\Modele\Backend\{
+use Modele\Backend\{
     Article,
     Admin
 };

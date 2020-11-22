@@ -1,8 +1,8 @@
 <?php
 
-namespace Tpblog\Modele\Frontend;
+namespace Modele\Frontend;
 
-use \Tpblog\Modele\ModeleGeneral;
+use Modele\ModeleGeneral;
 
 require_once('modele/ModeleGeneral.php');
 

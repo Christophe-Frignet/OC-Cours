@@ -1,6 +1,6 @@
 <?php
 
-use \Tpblog\Modele\Frontend\FrontEnd;
+use Modele\Frontend\FrontEnd;
 
 require_once('modele/frontend/FrontEndManager.php');
 
