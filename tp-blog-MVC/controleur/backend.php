@@ -4,10 +4,8 @@ require_once('vendor/autoload.php');
 
 use Modele\Backend\{
     Article,
-    Admin
+    Admin,
 };
-
-use Modele\Frontend\Articles;
 
 function afficherAjoutArticle()
 {
@@ -24,7 +22,7 @@ function ajouterArticleController($post_titre_article,$post_contenu_article)
 
 function afficherModificationArticle($id_article)
 {
-    $articles = new Articles();
+    $articles = new Article();
     $article = $articles->recupererUnArticle($id_article);
 
     $titre_article = $article['titre'];
