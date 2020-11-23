@@ -109,7 +109,6 @@ try {
 
                 $id_article = $_GET['id_article'];
                 afficherModificationArticle($id_article);
-
             }
             
             else {

@@ -29,7 +29,7 @@ function afficherAccueil()
         throw new Exception('Le nombre de pages n\'est pas défini');
     }
     
-    require('view/afficher-accueil.php'); 
+    require('view/accueil.php'); 
 }
 
 function afficherArticle($id_article)
@@ -39,31 +39,19 @@ function afficherArticle($id_article)
 
     if($article != false)
     {
-        require('view/afficher-article.php');
+        require('view/article.php');
 
         $commentaires = new Commentaires();
         $commentaires = $commentaires->recupererCommentaires($id_article);
 
-        require('view/afficher-commentaires.php');
-        require('view/afficher-ajout-commentaire.php');
+        require('view/commentaires.php');
+        require('view/ajout-commentaire.php');
     }
     else
     {
         throw new Exception('Aucun article retourné par la base');
     } 
 }
-
-function afficherModificationArticle($id_article)
-{
-    $frontEnd = new Articles();
-    $article = $frontEnd->recupererUnArticle($id_article);
-
-    $titre_article = $article['titre'];
-    $contenu_article = $article['contenu'];
-
-    require('view/afficher-modification-article.php');
-}
-
 
 function ajouterCommentaireController($id_article,$date_commentaire,$auteur,$commentaire)
 {

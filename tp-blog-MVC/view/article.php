@@ -13,7 +13,7 @@
 
 <section class="bloc center">
     <p style="text-align:center;">
-        <?php include('afficher-acces.php'); ?>
+        <?php require('acces.php'); ?>
     </p>
 </section>
 
