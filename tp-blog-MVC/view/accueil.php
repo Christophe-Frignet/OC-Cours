@@ -2,7 +2,8 @@
 $titre_page = 'Accueil';
 
 ob_start();
-    require('view/acces.php'); ?>
+    require('view/acces.php');
+    ?>
 
     <h1>Accueil</h1>
 

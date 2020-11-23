@@ -11,11 +11,7 @@
 
 <body>
 
-<section class="bloc center">
-    <p style="text-align:center;">
-        <?php require('acces.php'); ?>
-    </p>
-</section>
+<?php require('acces.php'); ?>
 
 <p style="text-align: center;"><a href="index.php"><< Retour à l'accueil</a></p>
 
