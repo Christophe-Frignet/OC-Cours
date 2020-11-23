@@ -39,13 +39,11 @@ function afficherArticle($id_article)
 
     if($article != false)
     {
-        require('view/article.php');
-
         $commentaires = new Commentaires();
         $commentaires = $commentaires->recupererCommentaires($id_article);
 
-        require('view/commentaires.php');
-        require('view/ajout-commentaire.php');
+        require('view/article.php');
+        
     }
     else
     {

@@ -44,3 +44,6 @@
     </p>
 
 </section>
+
+<?php require('view/commentaires.php'); ?>
+<?php require('view/ajout-commentaire.php'); ?>
