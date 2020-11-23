@@ -29,7 +29,7 @@ function afficherAccueil()
         throw new Exception('Le nombre de pages n\'est pas défini');
     }
     
-    require('view/accueil.php'); 
+    require('view/frontend/accueil.php'); 
 }
 
 function afficherArticle($id_article)
@@ -42,7 +42,7 @@ function afficherArticle($id_article)
         $commentaires = new Commentaires();
         $commentaires = $commentaires->recupererCommentaires($id_article);
 
-        require('view/article.php');
+        require('view/frontend/article.php');
         
     }
     else

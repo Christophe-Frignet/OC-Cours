@@ -11,7 +11,7 @@
 
 <body>
 
-<?php require('acces.php'); ?>
+<?php require('view/acces.php'); ?>
 
 <p style="text-align: center;"><a href="index.php"><< Retour à l'accueil</a></p>
 
@@ -41,5 +41,5 @@
 
 </section>
 
-<?php require('view/commentaires.php'); ?>
-<?php require('view/ajout-commentaire.php'); ?>
+<?php require('view/frontend/modules/commentaires.php'); ?>
+<?php require('view/frontend/modules/ajout-commentaire.php'); ?>
