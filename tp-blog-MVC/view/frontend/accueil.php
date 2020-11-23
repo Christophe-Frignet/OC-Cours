@@ -1,18 +1,26 @@
-<?php
-$titre_page = 'Accueil';
+<!DOCTYPE html>
 
-ob_start();
-    require('view/acces.php');
-    ?>
+<html lang="fr">
 
-    <h1>Accueil</h1>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="public/css/style.css">
+        <title><?=$titre_page?></title>
+    </head>
 
-    <?php
-    require('view/backend/option-ajout-article.php');
-    require('view/frontend/modules/liste-articles.php');
-    require('view/frontend/modules/pagination.php');
+    <body>
+        <?php
+        require('view/acces.php');
+        ?>
 
-$contenu_page = ob_get_clean();
+        <h1>Accueil</h1>
 
-require('view/frontend/templates/template.php');
-?> 
+        <?php
+        require('view/backend/option-ajout-article.php');
+        require('view/frontend/modules/liste-articles.php');
+        require('view/frontend/modules/pagination.php');
+        ?> 
+    </body>
+
+</html> 
