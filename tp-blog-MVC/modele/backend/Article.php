@@ -21,7 +21,7 @@ class Article extends ModeleGeneral {
         $bdd = $this->connecterBdd();
 
         //On enregistre les nouvelles données dans la table
-        $sql = 'INSERT INTO articles (titre, contenu) VALUES ( :titre, :contenu)';
+        $sql = 'INSERT INTO articles (titre, contenu) VALUES (:titre, :contenu)';
         $req = $bdd->prepare($sql);
 
         $req->execute(array(
@@ -30,7 +30,7 @@ class Article extends ModeleGeneral {
             ));
 
         //on libère le curseur pour la prochaine requête
-        //$req->closeCursor();
+        $req->closeCursor();
 
         return $req;
     }
